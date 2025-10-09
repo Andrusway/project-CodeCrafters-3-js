@@ -14,3 +14,12 @@
    Components & Sections
 ============================ */
 
+@import url('./article.css');
+@import url('./books.css');
+@import url('./events.css');
+@import url('./feedbacks.css');
+@import url('./footer.css');
+@import url('./header.css');
+@import url('./hero.css');
+@import url('./location.css');
+@import url('./modal_window.css');
