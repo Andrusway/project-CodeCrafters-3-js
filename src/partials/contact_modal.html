@@ -1,0 +1,57 @@
+<div class="backdrop hidden" id="backdrop"></div>
+<div class="modal hidden" id="modal">
+  <button
+    class="contacts-modal-close-btn"
+    id="closeBtn"
+    type="button"
+    aria-label="close-button"
+  >
+    <svg class="contacts-modal-btn-icon" width="32" height="32">
+      <use href="../img/icon-x-close.svg.svg"></use>
+    </svg>
+  </button>
+  <div class="contacts-modal-dist">
+    <div class="contacts-modal-content">
+      <h2 class="contacts-modal-title">Register</h2>
+      <p class="contacts-event-title" id="eventTitle"></p>
+    </div>
+
+    <form id="registerForm">
+      <div class="contacts-form-field-name">
+        <label class="contacts-form-field-label">Name*</label>
+        <input
+          class="contacts-form-field-input"
+          type="text"
+          name="name"
+          placeholder="Ann"
+        />
+      </div>
+
+      <div class="contacts-form-field-name">
+        <label class="contacts-form-field-label">Email*</label>
+        <input
+          class="contacts-form-field-input"
+          type="email"
+          name="email"
+          placeholder="hello@booksy.com"
+        />
+      </div>
+
+      <div class="contacts-form-field-wrapper">
+        <label class="contacts-form-field-label">Message</label>
+        <textarea
+          class="contacts-form-textarea"
+          name="message"
+          placeholder="Type your message..."
+        ></textarea>
+      </div>
+
+      <button type="submit" class="contacts-submit-btn">Register</button>
+    </form>
+  </div>
+</div>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
