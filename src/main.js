@@ -1,1 +1,5 @@
-import './js/feedbacks.js';
+import { initFeedbacksSwiper } from './js/helpers.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFeedbacksSwiper();
+});
