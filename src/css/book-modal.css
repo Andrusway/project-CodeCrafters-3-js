@@ -4,6 +4,19 @@
   gap: 24px;
 }
 
+@media screen and (min-width: 768px) {
+  .book-modal-content {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .book-modal-product-info {
+    width: 307px;
+    flex-shrink: 0;
+  }
+}
+
 .book-modal-cover-img {
   max-height: 466px;
   width: 100%;
@@ -42,6 +55,12 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .book-modal-count {
+    margin-bottom: 24px;
+  }
 }
 
 .book-modal-qty-btn,
@@ -116,10 +135,10 @@
 
 /*region Accordion*/
 .ac {
+  margin: 0;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid rgb(11 5 0 / .15);
-  margin: 0;
 }
 
 .ac:first-child {
@@ -128,7 +147,7 @@
 
 .ac .ac-trigger {
   position: relative;
-  height: 59px;
+  height: 58px;
   font-weight: 600;
   font-size: 18px;
   line-height: 1.5;
