@@ -1,7 +1,4 @@
 .location {
-  background-color: #fceee6;
-  padding-left: 16px;
-  padding-right: 16px;
   padding-top: 64px;
   padding-bottom: 64px;
   min-width: 320px;
@@ -14,12 +11,9 @@
 }
 
 .location-title {
-  font-family: 'Rubik', sans-serif;
   font-weight: 600;
   font-size: 16px;
-  line-height: 1.5;
   text-transform: capitalize;
-  color: #0b0500;
   padding-bottom: 16px;
 }
 
@@ -45,7 +39,7 @@
   padding-bottom: 32px;
 }
 
-.contact-list {
+.location-contact-list {
   gap: 24px;
   display: flex;
   flex-direction: column;
@@ -131,7 +125,6 @@
 }
 
 .address {
-  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -163,6 +156,7 @@
 
   .location-description {
     padding-bottom: 0;
+    /* padding-right: 80px; */
   }
   .location-contacts {
     min-width: 336px;
