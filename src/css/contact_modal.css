@@ -1,8 +1,11 @@
-.hidden {
+.contacts-hidden {
   display: none;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
 
-.backdrop {
+.contacts-modal-backdrop {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
@@ -12,7 +15,7 @@
   padding: 64px 16px 64px 16px;
 }
 
-.modal {
+.contacts-modal-window {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -20,29 +23,13 @@
   border-radius: var(--Radius-Large, 16px);
   background: var(--ColorScheme1-Background, rgba(252, 238, 230, 1));
   padding: 64px 16px 64px 16px;
-  width: 343px;
-  height: 794px;
   z-index: 100;
+  min-height: auto;
+  max-width: 343px;
   box-shadow:
     0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-.contacts-modal-dist {
-  display: flex;
-  gap: 48px;
-  flex-direction: column;
-}
-
-.contacts-modal-content {
-  width: 311px;
-  height: 142px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 16px;
 }
 
 .contacts-modal-close-btn {
@@ -64,8 +51,23 @@
   transform: scale(1.2);
 }
 
-.contacts-modal-title {
+.contacts-modal-content {
   width: 311px;
+  display: flex;
+  gap: 48px;
+  flex-direction: column;
+}
+
+.contacts-modal-description {
+  height: 142px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.contacts-modal-main-title {
   height: 58px;
   color: var(--ColorScheme1-Text, rgba(11, 5, 0, 1));
   font-family: Rubik;
@@ -76,8 +78,7 @@
   text-align: center;
 }
 
-.contacts-event-title {
-  width: 311px;
+.contacts-modal-event-title {
   height: 68px;
   color: var(--ColorScheme1-Text, rgba(11, 5, 0, 1));
   font-family: Rubik;
@@ -87,8 +88,7 @@
   text-align: center;
 }
 
-form {
-  width: 311px;
+.contacts-modal-register-form {
   height: 476px;
   display: flex;
   flex-direction: column;
@@ -133,20 +133,6 @@ form {
   color: var(--ColorScheme2-Text, rgba(11, 5, 0, 1));
 }
 
-.contacts-form-field-input:focus::placeholder,
-.contacts-form-textarea:focus::placeholder {
-  opacity: 0;
-}
-.contacts-form-field-wrapper {
-  width: 311px;
-  height: 212px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 8px;
-}
-
 .contacts-form-field-label {
   width: 311px;
   height: 24px;
@@ -158,7 +144,22 @@ form {
   text-align: left;
 }
 
-.contacts-form-textarea {
+.contacts-form-field-input:focus::placeholder,
+.contacts-form-textarea-field:focus::placeholder {
+  opacity: 0;
+}
+
+.contacts-form-textarea-wrapper {
+  width: 311px;
+  height: 212px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.contacts-form-textarea-field {
   width: 311px;
   height: 180px;
   display: flex;
@@ -177,7 +178,7 @@ form {
   text-align: left;
 }
 
-.contacts-submit-btn {
+.contacts-modal-submit-btn {
   width: 311px;
   height: 48px;
   display: flex;
@@ -198,57 +199,34 @@ form {
   text-align: left;
 }
 
-.contacts-submit-btn:hover {
+.contacts-modal-submit-btn:hover {
   border: 1px solid var(--Color-NeutralDarkest, rgba(11, 5, 0, 1));
   border-radius: 4px;
   background: var(--Color-NeutralDarkest, rgba(11, 5, 0, 1));
   transform: scale(1.05);
 }
 
+/*"📖", "📚", "📘", "📙", "📕" стилі для js "📖", "📚", "📘", "📙", "📕" */
+
 body.modal-open {
   overflow: hidden;
 }
 
-@media screen and (min-width: 768px) {
-  .backdrop {
-    padding: 64px 0px 64px 0px;
-  }
-  .modal {
-    width: 866px;
-    height: 760px;
-    padding: 64px;
-  }
-  .contacts-modal-content {
-    width: 738px;
-    height: 108px;
-  }
+.swal-success-text {
+  display: flex;
+  justify-content: center;
+  font-family: 'Rubik', sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
 
-  .contacts-modal-title {
-    width: 738px;
-  }
-  .contacts-event-title {
-    width: 738px;
-    height: 34px;
-  }
-  form {
-    width: 738px;
-  }
-  .contacts-form-field-name {
-    width: 738px;
-  }
-  .contacts-form-field-input {
-    width: 738px;
-  }
-  .contacts-form-field-wrapper {
-    width: 738px;
-  }
-  .contacts-form-field-label {
-    width: 738px;
-  }
-  .contacts-form-textarea {
-    width: 738px;
-  }
-  .contacts-submit-btn {
-    width: 342px;
-  }
+.swal-letter {
+  color: #e15d05; /* Оранжевый цвет кнопки */
+  display: inline-block;
+  /* Добавим лёгкий блеск/тень для объёма */
+  text-shadow:
+    0 2px 2px rgba(0, 0, 0, 0.2),
+    0 0 8px rgba(255, 200, 100, 0.5);
 }

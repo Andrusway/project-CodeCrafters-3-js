@@ -1,5 +1,5 @@
-<div class="backdrop hidden" id="backdrop"></div>
-<div class="modal hidden" id="modal">
+<div class="contacts-modal-backdrop" id="backdrop"></div>
+<div class="contacts-modal-window" id="modal">
   <button
     class="contacts-modal-close-btn"
     id="closeBtn"
@@ -10,13 +10,13 @@
       <use href="../img/icon-x-close.svg.svg"></use>
     </svg>
   </button>
-  <div class="contacts-modal-dist">
-    <div class="contacts-modal-content">
-      <h2 class="contacts-modal-title">Register</h2>
-      <p class="contacts-event-title" id="eventTitle"></p>
+  <div class="contacts-modal-content">
+    <div class="contacts-modal-description">
+      <h2 class="contacts-modal-main-title">Register</h2>
+      <p class="contacts-modal-event-title" id="eventTitle"></p>
     </div>
 
-    <form id="registerForm">
+    <form class="contacts-modal-register-form" id="registerForm">
       <div class="contacts-form-field-name">
         <label class="contacts-form-field-label">Name*</label>
         <input
@@ -37,16 +37,16 @@
         />
       </div>
 
-      <div class="contacts-form-field-wrapper">
+      <div class="contacts-form-textarea-wrapper">
         <label class="contacts-form-field-label">Message</label>
         <textarea
-          class="contacts-form-textarea"
+          class="contacts-form-textarea-field"
           name="message"
           placeholder="Type your message..."
         ></textarea>
       </div>
 
-      <button type="submit" class="contacts-submit-btn">Register</button>
+      <button type="submit" class="contacts-modal-submit-btn">Register</button>
     </form>
   </div>
 </div>
@@ -55,3 +55,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
