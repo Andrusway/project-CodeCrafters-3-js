@@ -21,7 +21,7 @@ export function renderBookModal(book) {
 
         <div class="book-modal-count">
           <button type="button" class="book-modal-qty-btn book-modal-btn-minus" aria-label="Decrease quantity">-</button>
-          <p class="btn-count">1</p>
+          <p class="book-count">1</p>
           <button type="button" class="book-modal-qty-btn book-modal-btn-plus" aria-label="Increase quantity">+</button>
         </div>
 
