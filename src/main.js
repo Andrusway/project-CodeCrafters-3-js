@@ -1,14 +1,26 @@
-import { bookModalRefs, tempRefs } from './js/refs.js';
-import { closeModal, openModal } from './js/modal.js';
-import { renderBookModal } from './js/render-function.js';
-import { getBook } from './js/products-api.js';
+import { bookModalRefs, modalRefs } from './js/refs.js';
+import {
+  onAddBookClick,
+  onBackdropClick,
+  onBookClick,
+  onBookCountInput,
+  onBookMinusClick,
+  onBookModalCloseBtnClick,
+  onBookPlusClick,
+  onBuyBookClick,
+} from './js/handlers.js';
 
-bookModalRefs.openBookModalBtn.addEventListener('click', async e => {
-  openModal();
-  const bookId = e.target.dataset.id;
-  renderBookModal(await getBook(bookId));
-})
+bookModalRefs.openBookModalBtn.addEventListener('click', onBookClick);
 
-tempRefs.closeModalBtn.addEventListener('click', e => {
-  closeModal();
-})
+modalRefs.backdrop.addEventListener('click', e => {
+  e.target.closest('.modal-close-btn') && onBookModalCloseBtnClick(e);
+  e.target.closest('.backdrop') && onBackdropClick(e);
+  e.target.closest('.book-modal-btn-plus') && onBookPlusClick(e);
+  e.target.closest('.book-modal-btn-minus') && onBookMinusClick(e);
+  e.target.closest('.book-modal-add-btn') && onAddBookClick(e);
+  e.target.closest('.book-modal-buy-btn') && onBuyBookClick(e);
+});
+
+modalRefs.backdrop.addEventListener('input', e => {
+  e.target.closest('.book-count') && onBookCountInput(e);
+});

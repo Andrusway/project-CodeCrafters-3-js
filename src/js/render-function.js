@@ -21,16 +21,19 @@ export function renderBookModal(book) {
           <p class="book-modal-price">$${book.price}</p>
         </header>
 
-        <div class="book-modal-count">
-          <button type="button" class="book-modal-qty-btn book-modal-btn-minus" aria-label="Decrease quantity">-</button>
-          <p class="book-count">1</p>
-          <button type="button" class="book-modal-qty-btn book-modal-btn-plus" aria-label="Increase quantity">+</button>
-        </div>
+        <form class="book-modal-form">
+          <fieldset class="book-modal-count">
+            <legend class="visually-hidden">Select book quantity</legend>
+            <button type="button" class="book-modal-qty-btn book-modal-btn-minus" aria-label="Decrease quantity">-</button>
+            <input type="number" class="book-count" id="book-count" name="book-count" value="1" min="1" max="99" aria-live="polite"/>
+            <button type="button" class="book-modal-qty-btn book-modal-btn-plus" aria-label="Increase quantity">+</button>
+          </fieldset>
 
-        <div class="book-modal-buy-container">
-          <button type="button" class="book-modal-add-btn">Add to Cart</button>
-          <button type="button" class="book-modal-buy-btn">Buy Now</button>
-        </div>
+          <div class="book-modal-buy-container">
+            <button type="button" class="book-modal-add-btn">Add to Cart</button>
+            <button type="submit" class="book-modal-buy-btn">Buy Now</button>
+          </div>
+        </form>
 
         <div class="book-accordion-container">
           <section aria-labelledby="details-heading" class="ac">

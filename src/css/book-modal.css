@@ -61,12 +61,10 @@
 }
 
 .book-count {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 42px;
   background-color: rgb(11 5 0 / .05);
   border: 1px solid rgb(11 5 0 / .15);
+  text-align: center;
 }
 
 .book-modal-buy-container {
