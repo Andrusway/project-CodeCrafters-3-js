@@ -18,21 +18,17 @@
 }
 
 .location-header {
-  font-family: 'Rubik', sans-serif;
   font-weight: 600;
   font-size: 48px;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  color: #0b0500;
   padding-bottom: 24px;
 }
 
 .location-text {
-  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
-  color: #0b0500;
 }
 
 .location-contacts {
@@ -58,33 +54,27 @@
 }
 
 .contact-list-name {
-  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 1.4;
   letter-spacing: -0.01em;
-  color: #0b0500;
 }
 
 .link-email {
-  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   text-decoration: underline;
   text-decoration-skip-ink: none;
-  color: #0b0500;
   transition: opacity 250ms ease-in;
 }
 
 .link-phone {
-  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   text-decoration: underline;
   text-decoration-skip-ink: none;
-  color: #0b0500;
   transition: opacity 250ms ease-in;
 }
 
@@ -93,7 +83,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  color: #0b0500;
 }
 
 .link-email:active {
@@ -111,7 +100,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  color: #0b0500;
 }
 
 .link-phone:active {
@@ -128,7 +116,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  color: #0b0500;
 }
 
 .google-map {
@@ -141,11 +128,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .location {
-    padding-left: 32px;
-    padding-right: 32px;
-    min-width: 768px;
-  }
   .top-box {
     display: flex;
     flex-direction: row;
@@ -168,11 +150,10 @@
   }
 }
 
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: 1440px) {
   .location {
     padding-left: 64px;
     padding-right: 64px;
-    min-width: 1440px;
   }
   .top-box {
     gap: 80px;
