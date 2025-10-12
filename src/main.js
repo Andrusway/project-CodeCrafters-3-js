@@ -1,9 +1,9 @@
 import { initHeroSwiper } from './js/hero.js';
-import { openNavbar, closeNavbar} from "./js/handlers";;
-import { handleScreenChange } from "./js/helpers";
-import { navbarBtn, navbarCloseBtn, mediaQuery } from "./js/refs";
+import { openNavbar, closeNavbar } from './js/handlers';
+import { handleScreenChange } from './js/helpers';
+import { navbarBtn, navbarCloseBtn, mediaQuery } from './js/refs';
 import './js/books';
-import { bookModalRefs, modalRefs } from './js/refs.js';
+import { refs } from './js/refs.js';
 import {
   onAddBookClick,
   onBackdropClick,
@@ -26,15 +26,16 @@ function initAfterLoad() {
 
 document.addEventListener('DOMContentLoaded', initAfterLoad);
 
+handleScreenChange(mediaQuery);
+mediaQuery.addEventListener('change', handleScreenChange);
 
-handleScreenChange(mediaQuery)
-mediaQuery.addEventListener("change", handleScreenChange)
-
-navbarBtn.addEventListener("click", openNavbar);
-navbarCloseBtn.addEventListener("click", closeNavbar);
+navbarBtn.addEventListener('click', openNavbar);
+navbarCloseBtn.addEventListener('click', closeNavbar);
 // navbarList.addEventListener("click", handleNavigation);
 
-modalRefs.backdrop.addEventListener('click', e => {
+refs.booksList.addEventListener('click', onBookClick);
+
+refs.backdrop.addEventListener('click', e => {
   e.target.closest('.modal-close-btn') && onBookModalCloseBtnClick(e);
   e.target.closest('.backdrop') && onBackdropClick(e);
   e.target.closest('.book-modal-btn-plus') && onBookPlusClick(e);
@@ -43,6 +44,6 @@ modalRefs.backdrop.addEventListener('click', e => {
   e.target.closest('.book-modal-buy-btn') && onBuyBookClick(e);
 });
 
-modalRefs.backdrop.addEventListener('input', e => {
+refs.backdrop.addEventListener('input', e => {
   e.target.closest('.book-count') && onBookCountInput(e);
 });

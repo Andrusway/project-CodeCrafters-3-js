@@ -1,11 +1,11 @@
-import { bookModalRefs } from './refs.js';
+import { refs } from './refs.js';
 import { toTitleCase } from './helpers.js';
 import Accordion from 'accordion-js';
 
 export function renderBookModal(book) {
   const bookTitle = toTitleCase(book.title);
 
-  bookModalRefs.bookModalContent.innerHTML = `
+  refs.bookModalContent.innerHTML = `
       <img
         class="book-modal-cover-img"
         src="${book.book_image}"

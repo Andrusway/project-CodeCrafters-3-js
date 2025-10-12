@@ -1,33 +1,30 @@
-import { stopScroll } from "./helpers";
-import { navbarBtn,navbarCloseBtn,navbarList, } from "./refs";
+import { getBooksSelected, stopScroll } from './helpers';
+import { navbarBtn, navbarCloseBtn, navbarList } from './refs';
 import { closeModal, openModal } from './modal.js';
 import { renderBookModal } from './render-function.js';
 import { getBook } from './products-api.js';
-import { bookModalRefs } from './refs.js';
+import { refs } from './refs.js';
 import { showInfoToast, showSuccessToast } from './helpers.js';
 
-let booksSelected = 1;
-
 export function openNavbar() {
-  if (!navbarList.classList.contains("is-visible")) {
-    navbarList.classList.add("is-visible");
-    navbarBtn.classList.remove("is-visible");
-    navbarCloseBtn.classList.toggle("is-visible");
-    stopScroll()
+  if (!navbarList.classList.contains('is-visible')) {
+    navbarList.classList.add('is-visible');
+    navbarBtn.classList.remove('is-visible');
+    navbarCloseBtn.classList.toggle('is-visible');
+    stopScroll();
     return;
   }
 }
 
 export function closeNavbar() {
-  if (navbarList.classList.contains("is-visible")) {
-    navbarList.classList.remove("is-visible");
-    navbarBtn.classList.add("is-visible");
-    navbarCloseBtn.classList.toggle("is-visible");
-stopScroll()
+  if (navbarList.classList.contains('is-visible')) {
+    navbarList.classList.remove('is-visible');
+    navbarBtn.classList.add('is-visible');
+    navbarCloseBtn.classList.toggle('is-visible');
+    stopScroll();
     return;
   }
 }
-
 
 // функція пеерходу на сторінку при кліку на лінк навбару
 // та його закриття
@@ -36,17 +33,14 @@ export function handleNavigation(event) {
 
   if (!link) return;
 
-  const targetId = link.getAttribute("href").substring(1);
+  const targetId = link.getAttribute('href').substring(1);
   const targetSection = document.getElementById(targetId);
 
   if (targetSection) {
-    targetSection.scrollIntoView({behavior: "smooth"})
+    targetSection.scrollIntoView({ behavior: 'smooth' });
   }
 
-  closeNavbar()
-
-
-
+  closeNavbar();
 }
 
 export function closeModalEscEvent(event) {
@@ -56,8 +50,12 @@ export function closeModalEscEvent(event) {
 }
 
 export async function onBookClick(event) {
+  const bookBtn = event.target.closest('.books-learn-more-button');
+
+  if (!bookBtn) return;
+
+  const bookId = event.target.closest('.books-item').dataset.id;
   openModal();
-  const bookId = event.target.dataset.id;
   renderBookModal(await getBook(bookId));
 }
 
@@ -72,19 +70,24 @@ export function onBookModalCloseBtnClick() {
 }
 
 export function onBookPlusClick() {
-  bookModalRefs.bookCountInput.value = ++booksSelected;
+  refs.bookModalCountInput.value = getBooksSelected() + 1;
 }
 
 export function onBookMinusClick() {
-  if (booksSelected > 1) {
-    bookModalRefs.bookCountInput.value = --booksSelected;
+  if (getBooksSelected() > 1) {
+    refs.bookModalCountInput.value = getBooksSelected() - 1;
   }
 }
 
 export function onAddBookClick() {
-  const books = booksSelected > 1 ? `${booksSelected} books` : '1 book';
+  let booksSelected = getBooksSelected();
+
+  const message =
+    booksSelected > 1
+      ? `В кошик додано ${booksSelected} книг`
+      : 'В кошик додана 1 книга';
   closeModal();
-  showInfoToast(`Added to shopping cart ${books}`);
+  showInfoToast(message);
 }
 
 export function onBuyBookClick(event) {
