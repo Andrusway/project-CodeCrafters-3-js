@@ -17,6 +17,13 @@
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .book-modal-product-info {
+    width: 759px;
+    flex-shrink: 0;
+  }
+}
+
 .book-modal-cover-img {
   max-height: 466px;
   width: 100%;
@@ -57,9 +64,27 @@
   margin-bottom: 16px;
 }
 
+/* Chrome, Safari, Edge, Opera */
+.book-count::-webkit-outer-spin-button,
+.book-count::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.book-count {
+  -moz-appearance: textfield;
+}
+
 @media screen and (min-width: 768px) {
   .book-modal-count {
     margin-bottom: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .book-modal-count {
+    margin-bottom: 16px;
   }
 }
 
@@ -93,6 +118,12 @@
   margin-bottom: 32px;
 }
 
+@media screen and (min-width: 1440px) {
+  .book-modal-buy-container {
+    flex-direction: row;
+  }
+}
+
 .book-modal-add-btn,
 .book-modal-buy-btn {
   height: 48px;
@@ -101,6 +132,13 @@
   line-height: 1.5;
   border-radius: 4px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 1440px) {
+  .book-modal-add-btn,
+  .book-modal-buy-btn {
+    width: 309px;
+  }
 }
 
 .book-modal-add-btn {
