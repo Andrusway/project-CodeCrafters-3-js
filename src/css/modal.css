@@ -63,3 +63,43 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+.modal-close-icon {
+  fill: #0b0500;
+}
+
+/*region Accordion*/
+.ac {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(11 5 0 / .15);
+}
+
+.ac:first-child {
+  border-top: 1px solid rgb(11 5 0 / .15);
+}
+
+.ac button.ac-trigger {
+  position: relative;
+  height: 59px;
+  /*border: none;*/
+}
+
+.ac.is-active .ac-trigger::after,
+.ac:not(.is-active) .ac-trigger::after {
+  content: "";
+}
+
+.ac-btn-ico {
+  width: 24px;
+  height: 24px;
+  fill: #0b0500;
+  position: absolute;
+  top: 17px;
+  right: 0;
+}
+
+.ac.is-active .ac-btn-ico {
+  transform: rotate(180deg);
+}
+/*endregion*/

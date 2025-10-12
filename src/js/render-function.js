@@ -1,7 +1,6 @@
 import { bookModalRefs } from './refs.js';
 import { toTitleCase } from './helpers.js';
 import Accordion from "accordion-js";
-import "accordion-js/dist/accordion.min.css";
 
 export function renderBookModal(book) {
   const bookTitle = toTitleCase(book.title);
@@ -32,7 +31,12 @@ export function renderBookModal(book) {
       <div class="book-accordion-container">
         <section aria-labelledby="details-heading" class="ac">
           <h3 id="details-heading ac-header">
-            <button type="button" class="ac-trigger">Details</button>
+            <button type="button" class="ac-trigger">
+              Details
+              <svg class="ac-btn-ico" width="24" height="24">
+                <use href="./img/sprite.svg#icon-chevron-down"></use>
+              </svg>
+            </button>
           </h3>
           <div class="ac-panel">
             <p class="ac-text">${book.description}</p>
@@ -71,5 +75,7 @@ export function renderBookModal(book) {
 }
 
 function addAccordions() {
-  new Accordion('.book-accordion-container');
+  new Accordion('.book-accordion-container', {
+    showMultiple: true,
+  });
 }
