@@ -10,6 +10,8 @@ export function renderBookModal(book) {
         class="book-modal-cover-img"
         src="${book.book_image}"
         alt="${bookTitle} cover"
+        width="310"
+        height="466"
       />
 
       <div class="book-modal-product-info">
@@ -85,10 +87,6 @@ export function renderBookModal(book) {
       </div>
   `;
 
-  addAccordions();
-}
-
-function addAccordions() {
   new Accordion('.book-accordion-container', {
     showMultiple: true,
   });
