@@ -68,7 +68,21 @@
   fill: #0b0500;
 }
 
+.book-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.book-modal-cover-img {
+  max-height: 466px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .book-modal-title {
+  margin-bottom: 8px;
   font-weight: 600;
   font-size: 40px;
   line-height: 1.2;
@@ -77,6 +91,7 @@
 }
 
 .book-modal-author {
+  margin-bottom: 8px;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
@@ -84,11 +99,19 @@
 }
 
 .book-modal-price {
+  margin-bottom: 24px;
   font-weight: 400;
   font-size: 24px;
   line-height: 1.4;
   letter-spacing: -0.01em;
   color: #0b0500;
+}
+
+.book-modal-count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .book-modal-qty-btn,
@@ -100,6 +123,13 @@
 }
 
 .btn-count {
+}
+
+.book-modal-buy-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
 }
 
 .book-modal-add-btn,
@@ -114,6 +144,7 @@
   background-color: transparent;
   border: none;
   border-bottom: 1px solid rgb(11 5 0 / .15);
+  margin: 0;
 }
 
 .ac:first-child {
@@ -127,6 +158,7 @@
   font-size: 18px;
   line-height: 1.5;
   color: #0b0500;
+  padding-left: 0;
 }
 
 .ac .ac-trigger::after {
@@ -151,5 +183,7 @@
   font-size: 16px;
   line-height: 1.5;
   color: #0b0500;
+  padding: 0;
+  margin-bottom: 24px;
 }
 /*endregion*/
