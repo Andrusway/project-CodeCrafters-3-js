@@ -1,21 +1,44 @@
 
-import { NAVBAR_BTN,NAVBAR_LIST,NAVBAR_CLOSE_BTN} from "./constants";
+import { stopScroll } from "./helpers";
+import { navbarBtn,navbarCloseBtn,navbarList, } from "./refs";
 
 export function openNavbar() {
-  if (!NAVBAR_LIST.classList.contains("is-visible")) {
-    NAVBAR_LIST.classList.add("is-visible");
-    NAVBAR_BTN.classList.remove("is-visible");
-    NAVBAR_CLOSE_BTN.classList.toggle("is-visible");
+  if (!navbarList.classList.contains("is-visible")) {
+    navbarList.classList.add("is-visible");
+    navbarBtn.classList.remove("is-visible");
+    navbarCloseBtn.classList.toggle("is-visible");
+    stopScroll()
     return;
   }
 }
 
 export function closeNavbar() {
-  if (NAVBAR_LIST.classList.contains("is-visible")) {
-    NAVBAR_LIST.classList.remove("is-visible");
-    NAVBAR_BTN.classList.add("is-visible");
-    NAVBAR_CLOSE_BTN.classList.toggle("is-visible");
-
+  if (navbarList.classList.contains("is-visible")) {
+    navbarList.classList.remove("is-visible");
+    navbarBtn.classList.add("is-visible");
+    navbarCloseBtn.classList.toggle("is-visible");
+stopScroll()
     return;
   }
+}
+
+
+// функція пеерходу на сторінку при кліку на лінк навбару 
+// та його закриття
+export function handleNavigation(event) {
+  const link = event.target.closest('a');
+
+  if (!link) return;
+
+  const targetId = link.getAttribute("href").substring(1);
+  const targetSection = document.getElementById(targetId);
+
+  if (targetSection) {
+    targetSection.scrollIntoView({behavior: "smooth"})
+  }
+
+  closeNavbar()
+  
+  
+
 }
