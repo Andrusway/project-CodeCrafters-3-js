@@ -157,6 +157,12 @@
   font-size: 20px;
 }
 
+.no-books-info {
+  padding: 64px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .books-learn-more-button {
   cursor: pointer;
   border: 1px solid #0b0500;
@@ -180,6 +186,7 @@
   cursor: pointer;
   display: none;
   /* border: 1px solid #e15d05; */
+  border: none;
   border-radius: 4px;
   padding: 12px 24px;
   /* width: 342px; */

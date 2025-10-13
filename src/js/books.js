@@ -178,7 +178,7 @@ async function showBooksByCaregory(category) {
     booksNumberInfo.textContent = `Showing ${booksNumber} of ${booksTotalNumber}`;
 
     if (!booksByCategory.length) {
-      booksList.innerHTML = `<p>Sorry, there are no books in this category!</p>`;
+      booksList.innerHTML = `<p class="no-books-info">Sorry, there are no books in this category!</p>`;
       return;
     }
 
