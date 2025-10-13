@@ -1,6 +1,7 @@
 
 import './js/events';
 import { initHeroSwiper } from './js/hero.js';
+import { initFeedbacksSwiper } from './js/feedbacks.js';
 import { openNavbar, closeNavbar } from './js/handlers';
 import { handleScreenChange } from './js/helpers';
 import { navbarBtn, navbarCloseBtn, mediaQuery } from './js/refs';
@@ -18,11 +19,14 @@ import {
 } from './js/handlers.js';
 
 function initAfterLoad() {
-  const slider = document.querySelector('.swiper-hero');
-  if (slider) {
+  const heroSlider = document.querySelector('.swiper-hero');
+  if (heroSlider) {
     initHeroSwiper();
-  } else {
-    setTimeout(initAfterLoad, 50);
+  }
+
+  const feedbacksSlider = document.querySelector('.feedbacks-swiper');
+  if (feedbacksSlider) {
+    initFeedbacksSwiper();
   }
 }
 
