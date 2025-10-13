@@ -1,0 +1,288 @@
+.contacts-hidden {
+  opacity: 0;
+  display: none;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.contacts-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 64px 16px 64px 16px;
+}
+
+.contacts-modal-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: var(--Radius-Large, 16px);
+  background: var(--ColorScheme1-Background, rgba(252, 238, 230, 1));
+  padding: 64px 16px 64px 16px;
+  z-index: 11000;
+  min-height: 794px;
+  width: 343px;
+  box-shadow:
+    0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contacts-modal-close-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 16px;
+  top: 16px;
+  padding: 0;
+  line-height: 0;
+  background: transparent;
+  border: none;
+  z-index: 11001;
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contacts-modal-btn-icon {
+  fill: #fafafa;
+  transition: transform 250ms linear;
+}
+.contacts-modal-close-btn:hover .contacts-modal-btn-icon,
+.contacts-modal-close-btn:focus .contacts-modal-btn-icon,
+.contacts-modal-close-btn:active .contacts-modal-btn-icon {
+  transform: scale(1.2);
+}
+
+.contacts-modal-content {
+  /* width: 311px; */
+  display: flex;
+  gap: 48px;
+  flex-direction: column;
+}
+
+.contacts-modal-description {
+  height: 142px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.contacts-modal-main-title {
+  height: 58px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 57px;
+  letter-spacing: -1%;
+  text-align: center;
+}
+
+.contacts-modal-event-title {
+  height: 68px;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.contacts-modal-register-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+}
+
+.contacts-form-field-name {
+  height: 72px;
+  display: flex;
+  display: block;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.contacts-form-field-input {
+  width: 311px;
+
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px 8px 12px;
+  border: 1px solid var(--Opacity-NeutralDarkest15, rgba(11, 5, 0, 0.15));
+  border-radius: 4px;
+  background: var(--Opacity-NeutralDarkest5, rgba(11, 5, 0, 0.05));
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+}
+
+.contacts-form-field-label {
+  width: 311px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+}
+
+.contacts-form-field-input:focus::placeholder,
+.contacts-form-textarea-field:focus::placeholder {
+  opacity: 0;
+}
+
+.contacts-form-textarea-wrapper {
+  height: 212px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.contacts-form-textarea-field {
+  width: 311px;
+  height: 180px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 12px;
+  border: 1px solid var(--Opacity-NeutralDarkest15, rgba(11, 5, 0, 0.15));
+  border-radius: 4px;
+  background: var(--Opacity-NeutralDarkest5, rgba(11, 5, 0, 0.05));
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+}
+
+.contacts-modal-submit-btn {
+  width: 311px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px 12px 24px;
+  border: 1px solid var(--Color-Bamboo, rgba(225, 93, 5, 1));
+  border-radius: 4px;
+  background: var(--Color-Bamboo, rgba(225, 93, 5, 1));
+  color: var(--Color-White, rgba(255, 255, 255, 1));
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0%;
+  text-align: left;
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contacts-modal-submit-btn:hover {
+  border: 1px solid var(--Color-NeutralDarkest, rgba(11, 5, 0, 1));
+  border-radius: 4px;
+  background: var(--Color-NeutralDarkest, rgba(11, 5, 0, 1));
+  transform: scale(1.05);
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .contacts-modal-backdrop,
+  .contacts-modal-window {
+    padding: 64px 32px 64px 32px;
+  }
+  .contacts-modal-window {
+    width: 704px;
+  }
+  .contacts-modal-description {
+    height: 108px;
+  }
+  .contacts-modal-event-title {
+    height: 34px;
+  }
+
+  .contacts-modal-content,
+  .contacts-form-field-name,
+  .contacts-form-field-input,
+  .contacts-form-field-wrapper,
+  .contacts-form-field-label,
+  .contacts-form-textarea-field {
+    width: 640px;
+  }
+  .contacts-modal-submit-btn {
+    width: 342px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .contacts-modal-backdrop,
+  .contacts-modal-window {
+    padding: 64px;
+  }
+  .contacts-modal-window {
+    width: 866px;
+  }
+  .contacts-modal-description {
+    height: 108px;
+  }
+  .contacts-modal-event-title {
+    height: 34px;
+  }
+
+  .contacts-modal-content,
+  .contacts-form-field-name,
+  .contacts-form-field-input,
+  .contacts-form-field-wrapper,
+  .contacts-form-field-label,
+  .contacts-form-textarea-field {
+    width: 738px;
+  }
+  .contacts-modal-submit-btn {
+    width: 342px;
+  }
+}
+
+/*"📖", "📚", "📘", "📙", "📕" стилі для js "📖", "📚", "📘", "📙", "📕" */
+
+body.open-modal {
+  overflow: hidden;
+}
+
+.swal-success-text {
+  display: flex;
+  justify-content: center;
+  font-size: 64px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.swal-letter {
+  color: #e15d05; /* Оранжевый цвет кнопки */
+  display: inline-block;
+  /* Добавим лёгкий блеск/тень для объёма */
+  text-shadow:
+    0 2px 2px rgba(0, 0, 0, 0.2),
+    0 0 8px rgba(255, 200, 100, 0.5);
+}
+
+/* sweetAlert поверх модалки  */
+.swal2-container {
+  z-index: 19000;
+}

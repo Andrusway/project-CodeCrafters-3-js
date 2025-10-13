@@ -1,3 +1,6 @@
+import { stopScroll } from './helpers';
+import { navbarBtn, navbarCloseBtn, navbarList } from './refs';
+
 import { getBooksSelected, stopScroll } from './helpers';
 import { navbarBtn, navbarCloseBtn, navbarList } from './refs';
 import { closeModal, openModal } from './modal.js';

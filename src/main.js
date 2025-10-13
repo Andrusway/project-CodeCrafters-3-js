@@ -6,6 +6,10 @@ import { openNavbar, closeNavbar } from './js/handlers';
 import { handleScreenChange } from './js/helpers';
 import { navbarBtn, navbarCloseBtn, mediaQuery } from './js/refs';
 import './js/books';
+
+import './js/modal.js';
+import './js/contact_modal.js';
+
 import { refs } from './js/refs.js';
 import {
   onAddBookClick,
