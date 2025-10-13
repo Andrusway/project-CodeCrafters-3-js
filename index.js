@@ -34,7 +34,7 @@ import{S as q,N as T,P as j,K,i as N,A as W,a as g}from"./assets/vendor-Dz2U2Gzw
               <button type="button" class="ac-trigger" aria-expanded="false">
                 Details
                 <svg class="ac-btn-ico" width="24" height="24" aria-hidden="true">
-                  <use href="./img/sprite.svg#icon-chevron-down"></use>
+                  <use href="/img/sprite.svg#icon-chevron-down"></use>
                 </svg>
               </button>
             </h3>
@@ -48,7 +48,7 @@ import{S as q,N as T,P as j,K,i as N,A as W,a as g}from"./assets/vendor-Dz2U2Gzw
               <button type="button" class="ac-trigger" aria-expanded="false">
                 Shipping
                 <svg class="ac-btn-ico" width="24" height="24" aria-hidden="true">
-                  <use href="./img/sprite.svg#icon-chevron-down"></use>
+                  <use href="/img/sprite.svg#icon-chevron-down"></use>
                 </svg>
               </button>
             </h3>
@@ -66,7 +66,7 @@ import{S as q,N as T,P as j,K,i as N,A as W,a as g}from"./assets/vendor-Dz2U2Gzw
               <button type="button" class="ac-trigger" aria-expanded="false">
                 Returns
                 <svg class="ac-btn-ico" width="24" height="24" aria-hidden="true">
-                  <use href="./img/sprite.svg#icon-chevron-down"></use>
+                  <use href="/img/sprite.svg#icon-chevron-down"></use>
                 </svg>
               </button>
             </h3>
