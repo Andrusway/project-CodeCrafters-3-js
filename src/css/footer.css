@@ -64,12 +64,11 @@
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+  padding: 12px;
   border: 1px solid rgba(11, 5, 0, 0.15);
   border-radius: 4px;
-  padding-block: 8px;
-  padding-inline: 12px;
   background: rgba(11, 5, 0, 0.05);
-  width: 219px;
+  width: 221px;
   height: 48px;
   margin-bottom: 12px;
   transition:
@@ -95,7 +94,7 @@
   border: 1px solid #0b0500;
   border-radius: 4px;
   padding: 12px 24px;
-  width: 110px;
+  width: 106px;
   height: 48px;
   font-weight: 400;
   font-size: 16px;
@@ -166,7 +165,7 @@
     max-width: 400px;
   }
   .footer-form-input {
-    width: 271px;
+    width: 278px;
     height: 48px;
   }
 }
