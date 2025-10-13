@@ -107,7 +107,7 @@ function createMarkupBooksList(array) {
         `<li class="books-item" data-id="${_id}">
           <img class="books-image" src="${book_image}" alt="${title}" width="343" />
           <div class="book-info">
-            <div>
+            <div class="book-title-author">
               <p class="book-title">${title}</p>
               <p class="book-author">${author}</p>
             </div>
@@ -240,9 +240,3 @@ function onLearnMore(event) {
 
   // дописати код відкриття модального вікна !!! Book Modal !!!
 }
-
-//
-// не зроблено
-// стилізація DropDown прокрутка
-// Назва книги в один рядок і ... якщо довша
-// hover focus
