@@ -1,0 +1,169 @@
+.location {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.location-description {
+  padding-bottom: 32px;
+}
+
+.location-title {
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: capitalize;
+  padding-bottom: 16px;
+}
+
+.location-header {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  padding-bottom: 24px;
+}
+
+.location-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.location-contacts {
+  padding-bottom: 32px;
+}
+
+.location-contact-list {
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-list-item {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.contact-list-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-list-name {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.link-email {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  transition: opacity 250ms ease-in;
+}
+
+.link-phone {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  transition: opacity 250ms ease-in;
+}
+
+.link-email:hover,
+.link-email:focus {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.link-email:active {
+  opacity: 0.8;
+}
+
+.link-email.disabled {
+  opacity: 0.2;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.link-phone:hover,
+.link-phone:focus {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.link-phone:active {
+  opacity: 0.8;
+}
+
+.link-phone.disabled {
+  opacity: 0.2;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.address {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.google-map {
+  min-width: 344px;
+  min-height: 395px;
+}
+
+.location-map iframe {
+  filter: grayscale(100%) brightness(95%) contrast(90%);
+}
+
+@media screen and (min-width: 768px) {
+  .top-box {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    margin-bottom: 80px;
+    align-items: flex-start;
+  }
+
+  .location-description {
+    padding-bottom: 0;
+    /* padding-right: 80px; */
+  }
+  .location-contacts {
+    min-width: 336px;
+    padding-bottom: 0;
+  }
+  .google-map {
+    min-width: 700px;
+    min-height: 395px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .location {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+  .top-box {
+    gap: 80px;
+  }
+  .location-description {
+    padding-bottom: 68px;
+    width: 732px;
+  }
+  .google-map {
+    min-width: 1312px;
+    min-height: 738px;
+  }
+}
