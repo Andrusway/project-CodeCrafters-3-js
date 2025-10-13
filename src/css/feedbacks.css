@@ -28,12 +28,14 @@
 .feedbacks-list {
   display: flex;
   align-items: stretch;
+  flex-wrap: nowrap;
 }
 
 .feedbacks-swiper .swiper-slide {
-  height: auto !important;
+  height: auto;
   display: flex;
   align-items: stretch;
+  flex: 0 0 auto;
 }
 
 .feedbacks-item {
