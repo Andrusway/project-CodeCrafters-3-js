@@ -1,6 +1,4 @@
 .section {
-  padding-top: 64px;
-  padding-bottom: 64px;
   min-width: 320px;
   display: flex;
   flex-direction: column;
@@ -151,10 +149,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .section {
-    padding-left: 64px;
-    padding-right: 64px;
-  }
   .top-box {
     gap: 80px;
   }
