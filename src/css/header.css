@@ -1,0 +1,148 @@
+/* initial header styles */
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  position: relative;
+}
+
+.header-logo {
+  /* margin-left: 20px; */
+  display: flex;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  margin-right: auto;
+}
+.icon {
+  width: 84px;
+  height: 36px;
+fill: #010101;
+}
+
+/* .icon:hover {
+
+} */
+
+.manu-icon {
+    fill: #0B0500;
+
+}
+
+.navbar-btn,
+.navbar-close-btn {
+  display: none;
+  margin-left: auto;
+  margin-right: 8px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.navbar-close-btn {
+  display: none;
+  margin-right: 8px;
+}
+
+.navbar {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 64px;
+  /* max-width: 343px; */
+  font-weight: 500;
+  font-size: 20px;
+  padding: 16px;
+  padding-bottom: 43px;
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 40px;
+  background-color: #fceee6;
+}
+
+.header-nav-list-item a {
+  display: block;
+  cursor: pointer;
+  transition: text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-nav-list-item a:hover,
+.header-nav-list-item a:focus {
+  text-shadow: #474747 3px 3px 2px;
+}
+
+.is-visible {
+  display: flex;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+@media screen and (min-width: 375px) {
+
+
+  .header-logo {
+    margin-right: 211px;
+  }
+
+  .navbar {
+    margin: 0 auto;
+    min-width: 343px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+ 
+
+  .header-nav {
+    flex-wrap: nowrap;
+  }
+
+  .header-logo {
+    margin-left: 0;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-right: 207px;
+  }
+  .navbar-btn {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+    position: static;
+    height: auto;
+    width: 415px;
+    font-weight: 400;
+    font-size: 16px;
+
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 32px;
+    padding: 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin: 0;
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+
+
+  .icon {
+  width: 80px;
+  height: 40px;
+
+}
+
+  .navbar {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
