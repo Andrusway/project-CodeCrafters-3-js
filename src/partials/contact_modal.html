@@ -1,0 +1,62 @@
+<div class="contacts-modal-backdrop contacts-hidden" id="backdrop"></div>
+
+<div class="contacts-modal-window contacts-hidden" id="modal">
+  <button
+    class="contacts-modal-close-btn"
+    id="closeBtn"
+    type="button"
+    aria-label="close-button"
+  >
+    <svg class="contacts-modal-btn-icon" width="32" height="32">
+      <use href="../img/icon-x-close.svg"></use>
+    </svg>
+  </button>
+  <div class="contacts-modal-content">
+    <div class="contacts-modal-description">
+      <h2 class="contacts-modal-main-title">Register</h2>
+      <p class="contacts-modal-event-title" id="eventTitle"></p>
+    </div>
+
+    <form class="contacts-modal-register-form" id="registerForm">
+      <div class="contacts-form-field-name">
+        <label class="contacts-form-field-label">Name*</label>
+        <input
+          class="contacts-form-field-input"
+          type="text"
+          name="name"
+          placeholder="Ann"
+        />
+      </div>
+
+      <div class="contacts-form-field-name">
+        <label class="contacts-form-field-label">Email*</label>
+        <input
+          class="contacts-form-field-input"
+          type="email"
+          name="email"
+          placeholder="hello@booksy.com"
+        />
+      </div>
+
+      <div class="contacts-form-textarea-wrapper">
+        <label class="contacts-form-field-label">Message</label>
+        <textarea
+          class="contacts-form-textarea-field"
+          name="message"
+          placeholder="Type your message..."
+        ></textarea>
+      </div>
+
+      <button type="submit" class="contacts-modal-submit-btn">Register</button>
+    </form>
+  </div>
+</div>
+
+<!-- GSAP -->
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>

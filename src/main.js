@@ -1,8 +1,10 @@
 import { initHeroSwiper } from './js/hero.js';
-import { openNavbar, closeNavbar} from "./js/handlers";;
-import { handleScreenChange } from "./js/helpers";
-import { navbarBtn, navbarCloseBtn, mediaQuery } from "./js/refs";
+import { openNavbar, closeNavbar } from './js/handlers';
+import { handleScreenChange } from './js/helpers';
+import { navbarBtn, navbarCloseBtn, mediaQuery } from './js/refs';
 import './js/books';
+import './js/modal.js';
+import './js/contact_modal.js';
 
 function initAfterLoad() {
   const slider = document.querySelector('.swiper-hero');
@@ -15,11 +17,9 @@ function initAfterLoad() {
 
 document.addEventListener('DOMContentLoaded', initAfterLoad);
 
+handleScreenChange(mediaQuery);
+mediaQuery.addEventListener('change', handleScreenChange);
 
-handleScreenChange(mediaQuery)
-mediaQuery.addEventListener("change", handleScreenChange)
-
-navbarBtn.addEventListener("click", openNavbar);
-navbarCloseBtn.addEventListener("click", closeNavbar);
-// navbarList.addEventListener("click", handleNavigation); 
-
+navbarBtn.addEventListener('click', openNavbar);
+navbarCloseBtn.addEventListener('click', closeNavbar);
+// navbarList.addEventListener("click", handleNavigation);
