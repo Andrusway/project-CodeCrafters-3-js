@@ -74,8 +74,7 @@
   height: 48px;
   margin-bottom: 24px;
 }
-.swiper-button-prev,
-.swiper-button-next {
+.hero-btn-swp {
   all: unset;
   display: flex;
   align-items: center;
@@ -83,30 +82,34 @@
   width: 48px;
   height: 48px;
   background: #e15d05;
+  border: 1px solid rgba(11, 5, 0, 0.15);
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
+.hero-btn-swp:hover {
   background: #fceee6;
+  border: 1px solid rgba(11, 5, 0, 0.15);
 }
-.swiper-button-prev.swiper-button-disabled,
-.swiper-button-next.swiper-button-disabled,
-.swiper-button-prev:disabled,
-.swiper-button-next:disabled {
+.hero-swiper-button-disabled {
   background: #e15d05;
   opacity: 0.2;
   cursor: default;
   border: 1px solid rgba(11, 5, 0, 0.15);
+  pointer-events: none;
 }
 .swiper-prev-icon,
 .swiper-next-icon {
-  fill: #0b0500;
+  fill: #fff;
   width: 24px;
   height: 24px;
 }
-.swiper-button-next::after,
-.swiper-button-prev::after {
+.hero-btn-swp:hover .swiper-prev-icon,
+.hero-btn-swp:hover .swiper-next-icon,
+.hero-btn-swp:focus .swiper-prev-icon,
+.hero-btn-swp:focus .swiper-next-icon {
+  fill: #000;
+}
+.hero-btn-swp::after {
   display: none;
 }
 /* === 375px+ === */
