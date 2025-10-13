@@ -1,4 +1,4 @@
-.location {
+.section {
   padding-top: 64px;
   padding-bottom: 64px;
   min-width: 320px;
@@ -151,7 +151,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .location {
+  .section {
     padding-left: 64px;
     padding-right: 64px;
   }
