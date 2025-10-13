@@ -8,9 +8,9 @@ export function initHeroSwiper() {
     slidesPerView: 1,
     loop: false,
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-      disabledClass: 'swiper-button-disabled',
+      nextEl: '.hero-swiper-button-next',
+      prevEl: '.hero-swiper-button-prev',
+      disabledClass: 'hero-swiper-button-disabled',
     },
     keyboard: {
       enabled: true,
@@ -24,8 +24,8 @@ export function initHeroSwiper() {
   });
 
   function updateButtons() {
-    const prevBtn = document.querySelector('.swiper-button-prev');
-    const nextBtn = document.querySelector('.swiper-button-next');
+    const prevBtn = document.querySelector('.hero-swiper-button-prev');
+    const nextBtn = document.querySelector('.hero-swiper-button-next');
 
     if (prevBtn) prevBtn.disabled = swiper.isBeginning;
     if (nextBtn) nextBtn.disabled = swiper.isEnd;
