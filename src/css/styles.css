@@ -4,11 +4,12 @@
   |============================
 */
 @import 'modern-normalize/modern-normalize.css';
+@import 'accordion-js/dist/accordion.min.css';
+@import 'izitoast/dist/css/iziToast.min.css';
 /* Common styles */
 @import url('./base.css');
 @import url('./container.css');
-
-
+@import url('./fonts.css');
 
 /* ============================
    Components & Sections
@@ -24,3 +25,4 @@
 @import url('./location.css');
 @import url('./modal_window.css');
 @import url('./contact_modal.css');
+@import url('./book-modal.css');
