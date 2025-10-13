@@ -1,8 +1,8 @@
 import Swiper from 'swiper';
 import 'swiper/css';
 import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
 
 const swiper = new Swiper('.events-swiper', {
   modules: [Navigation, Pagination],
