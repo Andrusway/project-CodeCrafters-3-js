@@ -208,11 +208,11 @@
 
 /*"📖", "📚", "📘", "📙", "📕" стилі для js "📖", "📚", "📘", "📙", "📕" */
 
-body.modal-open {
+/* body.modal-open {
   overflow: hidden;
-}
+} */
 
-.swal-success-text {
+/* .swal-success-text {
   display: flex;
   justify-content: center;
   font-family: 'Rubik', sans-serif;
@@ -220,7 +220,7 @@ body.modal-open {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 3px;
-}
+} */
 
 .swal-letter {
   color: #e15d05; /* Оранжевый цвет кнопки */
