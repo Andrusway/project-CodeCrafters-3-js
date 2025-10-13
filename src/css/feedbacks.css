@@ -7,12 +7,10 @@
 }
 
 .feedbacks-title {
-  font-size: 36px;
-  font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  margin-bottom: 8px;
-  color: #0b0500;
+  font-size: 36px;
+  font-weight: 600;
   margin-bottom: 24px;
 }
 
@@ -41,8 +39,10 @@
 .feedbacks-item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  min-height: 314px;
+  justify-content: flex-start;
   flex-grow: 1;
+  flex-shrink: 0;
   width: 100%;
   border: 1px solid rgba(11, 5, 0, 0.15);
   border-radius: 16px;
@@ -60,10 +60,9 @@
 }
 
 .feedbacks-text {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   font-size: 18px;
   color: #0b0500;
-  flex-grow: 1;
 }
 
 .feedbacks-user {
@@ -173,22 +172,19 @@
 }
 
 @media (min-width: 768px) {
-  .feedbacks-title {
-    font-size: 36px;
+  .feedbacks-item {
+    min-height: 244px;
   }
 
-  .feedbacks-nav {
-    margin-top: 40px;
+  .feedbacks-text {
+    flex-grow: 1;
   }
 }
 
 @media (min-width: 1440px) {
   .feedbacks-item {
     width: 421px;
-  }
-
-  .feedbacks-nav {
-    margin-top: 48px;
+    min-height: 217px;
   }
 
   .feedbacks-title {
