@@ -104,6 +104,12 @@
   border: 1px solid #0b0500;
 }
 
+.book-modal-qty-btn:hover,
+.book-modal-qty-btn:focus {
+  border-color: #707070;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .book-count {
   width: 42px;
   background-color: rgb(11 5 0 / .05);
@@ -193,6 +199,11 @@
   padding-left: 0;
 }
 
+.ac .ac-trigger:hover,
+.ac .ac-trigger:focus {
+  color: #707070;
+}
+
 .ac .ac-trigger::after {
   content: "" !important;
 }
@@ -204,10 +215,16 @@
   position: absolute;
   top: 17px;
   right: 0;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ac.is-active .ac-btn-ico {
   transform: rotate(180deg);
+}
+
+.ac .ac-trigger:hover .ac-btn-ico,
+.ac .ac-trigger:focus .ac-btn-ico {
+  fill: #707070;
 }
 
 .ac .ac-panel .ac-text {
