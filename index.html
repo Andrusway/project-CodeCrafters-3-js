@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Booksy</title>
     <script type="module" crossorigin src="/project-CodeCrafters-3-js/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-CodeCrafters-3-js/assets/vendor-D4Cj5E_D.js">
-    <link rel="stylesheet" crossorigin href="/project-CodeCrafters-3-js/assets/vendor-CUAiGeZ-.css">
-    <link rel="stylesheet" crossorigin href="/project-CodeCrafters-3-js/assets/index-TWUBKhe1.css">
+    <link rel="modulepreload" crossorigin href="/project-CodeCrafters-3-js/assets/vendor-DskxEx1y.js">
+    <link rel="stylesheet" crossorigin href="/project-CodeCrafters-3-js/assets/vendor-uGqyt-El.css">
+    <link rel="stylesheet" crossorigin href="/project-CodeCrafters-3-js/assets/index-HGGQa2ju.css">
   </head>
   <body>
     <header class="header" id="header">
@@ -193,7 +193,156 @@
 </section>
 
 
-      
+      <section class="section feedbacks" id="feedbacks">
+  <div class="container feedbacks-container">
+    <h2 class="section-title feedbacks-title">Customer Feedbacks</h2>
+    <p class="feedbacks-subtitle">See what our readers are saying about us!</p>
+
+    <div class="swiper feedbacks-swiper">
+      <ul class="swiper-wrapper feedbacks-list">
+        <li class="swiper-slide feedbacks-item">
+          <p class="feedbacks-text">
+            Great selection, fast delivery, and beautifully packaged books. My
+            go-to store for weekend reads!
+          </p>
+          <div class="feedbacks-user">
+            <img
+              src="data:image/webp;base64,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"
+              srcset="/project-CodeCrafters-3-js/assets/1-jane-doe@2x-DCH3Z_yM.webp 2x"
+              alt="Jane Doe"
+              class="feedbacks-avatar"
+              loading="lazy"
+            />
+            <div class="feedbacks-user-info">
+              <p class="feedbacks-name">Jane Doe</p>
+              <p class="feedbacks-role">Book Lover, Reader</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="swiper-slide feedbacks-item">
+          <p class="feedbacks-text">
+            Customer service was super helpful, and my order arrived earlier
+            than expected. Highly recommend!
+          </p>
+          <div class="feedbacks-user">
+            <img
+              src="data:image/webp;base64,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"
+              srcset="/project-CodeCrafters-3-js/assets/2-john-smith@2x-qnvk51jj.webp 2x"
+              alt="John Smith"
+              class="feedbacks-avatar"
+              loading="lazy"
+            />
+            <div class="feedbacks-user-info">
+              <p class="feedbacks-name">John Smith</p>
+              <p class="feedbacks-role">Editor, BookMag</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="swiper-slide feedbacks-item">
+          <p class="feedbacks-text">
+            Love the curated picks and clear descriptions. Makes it easy to find
+            my next favorite book.
+          </p>
+          <div class="feedbacks-user">
+            <img
+              src="data:image/webp;base64,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"
+              srcset="/project-CodeCrafters-3-js/assets/3-emily-johnson@2x-BTVlRE5k.webp 2x"
+              alt="Emily Johnson"
+              class="feedbacks-avatar"
+              loading="lazy"
+            />
+            <div class="feedbacks-user-info">
+              <p class="feedbacks-name">Emily Johnson</p>
+              <p class="feedbacks-role">Author, Novelist</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="swiper-slide feedbacks-item">
+          <p class="feedbacks-text">
+            I appreciate the attention to detail. Every order feels personal and
+            special.
+          </p>
+          <div class="feedbacks-user">
+            <img
+              src="data:image/webp;base64,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"
+              srcset="/project-CodeCrafters-3-js/assets/4-michael-brown@2x-aahvSFcb.webp 2x"
+              alt="Michael Brown"
+              class="feedbacks-avatar"
+              loading="lazy"
+            />
+            <div class="feedbacks-user-info">
+              <p class="feedbacks-name">Michael Brown</p>
+              <p class="feedbacks-role">Reader, Enthusiast</p>
+            </div>
+          </div>
+        </li>
+        <li class="swiper-slide feedbacks-item">
+          <p class="feedbacks-text">
+            Their customer support is as warm as their stories. Highly
+            recommended!
+          </p>
+          <div class="feedbacks-user">
+            <img
+              src="data:image/webp;base64,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"
+              srcset="/project-CodeCrafters-3-js/assets/5-kamila-persson@2x-CrMcOo7u.webp 2x"
+              alt="Kamila Persson"
+              class="feedbacks-avatar"
+              loading="lazy"
+            />
+            <div class="feedbacks-user-info">
+              <p class="feedbacks-name">Kamila Persson</p>
+              <p class="feedbacks-role">Poet, Dreamer</p>
+            </div>
+          </div>
+        </li>
+        <li class="swiper-slide feedbacks-item">
+          <p class="feedbacks-text">
+            Top-notch selection and excellent service. A gem for all book
+            enthusiasts!
+          </p>
+          <div class="feedbacks-user">
+            <img
+              src="data:image/webp;base64,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"
+              srcset="/project-CodeCrafters-3-js/assets/6-mark-robinson@2x-CRmysRho.webp 2x"
+              alt="Mark Robinson"
+              class="feedbacks-avatar"
+              loading="lazy"
+            />
+            <div class="feedbacks-user-info">
+              <p class="feedbacks-name">Mark Robinson</p>
+              <p class="feedbacks-role">Reader, Critic</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="feedbacks-nav">
+        <div class="feedbacks-pagination"></div>
+        <button
+          class="feedbacks-btn feedbacks-btn-prev"
+          aria-label="Previous feedback"
+        >
+          <svg width="24" height="24" aria-hidden="true">
+            <use xlink:href="/project-CodeCrafters-3-js/assets/sprite-DGpfnEqE.svg#icon-left-arrow-alt"></use>
+          </svg>
+        </button>
+
+        <button
+          class="feedbacks-btn feedbacks-btn-next"
+          aria-label="Next feedback"
+        >
+          <svg width="24" height="24" aria-hidden="true">
+            <use xlink:href="/project-CodeCrafters-3-js/assets/sprite-DGpfnEqE.svg#icon-right-arrow-alt"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <section id="events" class="section">
   <div class="container">
