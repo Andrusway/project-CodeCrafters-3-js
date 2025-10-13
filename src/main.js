@@ -1,3 +1,4 @@
+import './js/events';
 import { initHeroSwiper } from './js/hero.js';
 import { openNavbar, closeNavbar } from './js/handlers';
 import { handleScreenChange } from './js/helpers';
