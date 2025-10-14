@@ -42,7 +42,7 @@
 .contact-list-item {
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 16px;
 }
 
 .contact-list-info {
