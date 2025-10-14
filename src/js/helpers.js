@@ -1,5 +1,5 @@
 import { handleNavigation } from './handlers';
-import { navbarList, body } from './refs';
+import { navbarList, body, refs } from './refs';
 import iziToast from 'izitoast';
 
 // ф-я блокування скролу на боді - додає клас стилів

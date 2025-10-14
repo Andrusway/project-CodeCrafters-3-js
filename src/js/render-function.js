@@ -1,6 +1,7 @@
 import { refs } from './refs.js';
 import { toTitleCase } from './helpers.js';
 import Accordion from 'accordion-js';
+import sprite from '../img/sprite.svg';
 
 export function renderBookModal(book) {
   const bookTitle = toTitleCase(book.title);
@@ -41,7 +42,7 @@ export function renderBookModal(book) {
               <button type="button" class="ac-trigger" aria-expanded="false">
                 Details
                 <svg class="ac-btn-ico" width="24" height="24" aria-hidden="true">
-                  <use href="/img/sprite.svg#icon-chevron-down"></use>
+                  <use href="${sprite}#icon-chevron-down"></use>
                 </svg>
               </button>
             </h3>
@@ -55,7 +56,7 @@ export function renderBookModal(book) {
               <button type="button" class="ac-trigger" aria-expanded="false">
                 Shipping
                 <svg class="ac-btn-ico" width="24" height="24" aria-hidden="true">
-                  <use href="/img/sprite.svg#icon-chevron-down"></use>
+                  <use href="${sprite}#icon-chevron-down"></use>
                 </svg>
               </button>
             </h3>
@@ -73,7 +74,7 @@ export function renderBookModal(book) {
               <button type="button" class="ac-trigger" aria-expanded="false">
                 Returns
                 <svg class="ac-btn-ico" width="24" height="24" aria-hidden="true">
-                  <use href="/img/sprite.svg#icon-chevron-down"></use>
+                  <use href="${sprite}#icon-chevron-down"></use>
                 </svg>
               </button>
             </h3>
