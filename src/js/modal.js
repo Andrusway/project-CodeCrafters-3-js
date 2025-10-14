@@ -15,17 +15,18 @@ document.querySelectorAll('.register-btn').forEach(button => {
   });
 });
 
-import { body, refs } from './refs.js';
+import { refs } from './refs.js';
 import { closeModalEscEvent } from './handlers.js';
+import { restoreScroll, stopScroll } from './helpers.js';
 
 export function openModal() {
   refs.backdrop.classList.add('is-open');
-  body.classList.add('no-scroll');
+  stopScroll();
   document.addEventListener('keydown', closeModalEscEvent);
 }
 
 export function closeModal() {
   refs.backdrop.classList.remove('is-open');
-  body.classList.remove('no-scroll');
+  restoreScroll();
   document.removeEventListener('keydown', closeModalEscEvent);
 }
