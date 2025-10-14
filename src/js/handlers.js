@@ -1,4 +1,10 @@
-import { stopScroll, getBooksSelected, showInfoToast, showSuccessToast } from './helpers';
+import {
+  stopScroll,
+  getBooksSelected,
+  showInfoToast,
+  showSuccessToast,
+  restoreScroll,
+} from './helpers';
 import { navbarBtn, navbarCloseBtn, navbarList, refs } from './refs';
 import { closeModal, openModal } from './modal.js';
 import { renderBookModal } from './render-function.js';
@@ -20,7 +26,7 @@ export function closeNavbar() {
     navbarList.classList.remove('is-visible');
     navbarBtn.classList.add('is-visible');
     navbarCloseBtn.classList.toggle('is-visible');
-    stopScroll();
+    restoreScroll();
   }
 }
 

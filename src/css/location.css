@@ -117,8 +117,12 @@
 }
 
 .google-map {
-  min-width: 344px;
+  width: 100%;
   min-height: 395px;
+}
+
+@media screen and (min-width: 375px) {
+  width: 344px;
 }
 
 .location-map iframe {

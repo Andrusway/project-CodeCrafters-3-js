@@ -2,9 +2,14 @@ import { handleNavigation } from './handlers';
 import { navbarList, body, refs } from './refs';
 import iziToast from 'izitoast';
 
+// ф-я розблокування скролу на боді - видаляє клас стилів
+export function restoreScroll() {
+  body.classList.remove('no-scroll');
+}
+
 // ф-я блокування скролу на боді - додає клас стилів
 export function stopScroll() {
-  body.classList.toggle('no-scroll');
+  body.classList.add('no-scroll');
 }
 
 // Функції HandleScreenChange та OnNavClick зроблені для того,
