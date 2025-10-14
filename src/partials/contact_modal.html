@@ -8,7 +8,7 @@
     aria-label="close-button"
   >
     <svg class="contacts-modal-btn-icon" width="32" height="32">
-      <use href="../img/icon-x-close.svg"></use>
+      <use href="../img/sprite.svg#icon-close"></use>
     </svg>
   </button>
   <div class="contacts-modal-content">
@@ -25,7 +25,9 @@
           type="text"
           name="name"
           placeholder="Ann"
+          data-placeholder="Ann"
         />
+        <small class="error-message"></small>
       </div>
 
       <div class="contacts-form-field-name">
@@ -35,7 +37,9 @@
           type="email"
           name="email"
           placeholder="hello@booksy.com"
+          data-placeholder="hello@booksy.com"
         />
+        <small class="error-message"></small>
       </div>
 
       <div class="contacts-form-textarea-wrapper">

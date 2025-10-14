@@ -55,8 +55,7 @@
 }
 
 .contacts-modal-btn-icon {
-  fill: #fafafa;
-  transition: transform 250ms linear;
+  transition: all 0.3s ease;
 }
 .contacts-modal-close-btn:hover .contacts-modal-btn-icon,
 .contacts-modal-close-btn:focus .contacts-modal-btn-icon,
@@ -116,7 +115,8 @@
 
 .contacts-form-field-input {
   width: 311px;
-
+  outline: none;
+  transition: all 0.3s ease;
   height: 40px;
   display: flex;
   flex-direction: row;
@@ -143,6 +143,26 @@
 .contacts-form-field-input:focus::placeholder,
 .contacts-form-textarea-field:focus::placeholder {
   opacity: 0;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contacts-form-field-input:hover,
+.contacts-form-textarea-field:hover {
+  border-color: rgb(156, 153, 150);
+  transition: all 0.3s ease;
+}
+
+input.error {
+  border-color: var(--Color-ErrorRed, rgba(173, 0, 0, 1));
+}
+
+small.error-message {
+  color: var(--Color-ErrorRed, rgba(173, 0, 0, 1));
+  font-size: 12px;
+  display: none;
+  margin-top: 2px;
+  transition: opacity 0.3s ease;
 }
 
 .contacts-form-textarea-wrapper {
@@ -156,6 +176,8 @@
 
 .contacts-form-textarea-field {
   width: 311px;
+  outline: none;
+  transition: all 0.3s ease;
   height: 180px;
   display: flex;
   flex-direction: row;
@@ -196,7 +218,6 @@
   border: 1px solid var(--Color-NeutralDarkest, rgba(11, 5, 0, 1));
   border-radius: 4px;
   background: var(--Color-NeutralDarkest, rgba(11, 5, 0, 1));
-  transform: scale(1.05);
   transition:
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -209,6 +230,7 @@
   }
   .contacts-modal-window {
     width: 704px;
+    min-height: 760px;
   }
   .contacts-modal-description {
     height: 108px;
@@ -237,6 +259,7 @@
   }
   .contacts-modal-window {
     width: 866px;
+    /* max-width: 866px; */
   }
   .contacts-modal-description {
     height: 108px;
