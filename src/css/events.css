@@ -113,13 +113,22 @@
   height: 48px;
 }
 
+.events-btn:hover {
+  background: #fceee6;
+}
+
 .events-btn:active {
   background: #5a2502;
 }
 
 .swiper-button-disabled {
-  background: E15D05;
+  /* cursor: not-allowed; */
+  background: #e15d05;
   opacity: 0.2;
+}
+
+.swiper-button-disabled svg {
+  fill: #0b0500;
 }
 
 .right-arrow {
