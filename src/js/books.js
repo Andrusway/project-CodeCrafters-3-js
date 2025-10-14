@@ -133,51 +133,36 @@ async function onSelectedCategory(event) {
   const selectedCategory = event.target.textContent;
   //   console.log(selectedCategory);
   if (selectedCategory === 'All categories') {
-    showTopBooks();
+    showBooks('All categories');
   } else {
-    showBooksByCaregory(selectedCategory);
+    showBooks(selectedCategory);
   }
 }
 
-// function ShowTopBooks (при завантаженні сторінки і при виборі категорії All Categories)
-async function showTopBooks() {
+showBooks('All categories');
+
+// function ShowBooks
+// при завантаженні сторінки і при виборі категорії All Categories - запит getTopBooks,
+// при кліку на категорію - запит getBooksByCategory
+
+async function showBooks(category) {
   hideShowMoreButton();
   try {
-    const allBooks = await getTopBooks();
-    // console.log(allBooks);
-    BOOKS = allBooks;
-
-    // render
-    const firstBooks = BOOKS.slice(fromElement, numberOfBooks);
-    booksList.innerHTML = createMarkupBooksList(firstBooks);
-
-    booksNumber = BOOKS.length > numberOfBooks ? numberOfBooks : BOOKS.length;
-    booksTotalNumber = BOOKS.length;
-    booksNumberInfo.textContent = `Showing ${booksNumber} of ${booksTotalNumber}`;
-
-    if (BOOKS.length > numberOfBooks) {
-      //   console.log(BOOKS.length, numberOfBooks);
-      displayShowMoreButton();
+    if (category === 'All categories') {
+      const allBooks = await getTopBooks();
+      // console.log(allBooks);
+      BOOKS = allBooks;
+    } else {
+      const booksByCategory = await getBooksByCategory(category);
+      // console.log(booksByCategory);
+      BOOKS = booksByCategory;
     }
-  } catch (error) {
-    console.log(error);
-  }
-}
 
-showTopBooks();
-
-// *********** Show Books by Category (при кліку на категорію)
-async function showBooksByCaregory(category) {
-  hideShowMoreButton();
-  try {
-    const booksByCategory = await getBooksByCategory(category);
-    // console.log(booksByCategory);
-    BOOKS = booksByCategory;
     booksNumber = BOOKS.length > numberOfBooks ? numberOfBooks : BOOKS.length;
     booksTotalNumber = BOOKS.length;
     booksNumberInfo.textContent = `Showing ${booksNumber} of ${booksTotalNumber}`;
 
-    if (!booksByCategory.length) {
+    if (!BOOKS.length) {
       booksList.innerHTML = `<p class="no-books-info">Sorry, there are no books in this category!</p>`;
       return;
     }
@@ -187,7 +172,7 @@ async function showBooksByCaregory(category) {
     booksList.innerHTML = createMarkupBooksList(firstBooks);
 
     if (BOOKS.length > numberOfBooks) {
-      //   console.log(BOOKS.length);
+      //   console.log(BOOKS.length, numberOfBooks);
       displayShowMoreButton();
     }
   } catch (error) {
