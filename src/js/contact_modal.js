@@ -1,7 +1,7 @@
 import { stopScroll } from './helpers';
 import { restoreScroll } from './helpers';
 
-// '📖', '📚', '📘', '📙', '📕'ОТРИМУЄМО ЕЛЕМЕНТИ'📖', '📚', '📘', '📙', '📕'
+//  '📚', '📘', '📙', '📕'ОТРИМУЄМО ЕЛЕМЕНТИ'📖', '📚', '📘', '📙', 
 
 const contactsModal = document.getElementById('modal');
 const contactsModalBackdrop = document.getElementById('backdrop');
