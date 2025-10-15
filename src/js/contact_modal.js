@@ -1,6 +1,6 @@
-import { restoreScroll, stopScroll } from './helpers';
+import { stopScroll } from './helpers';
 
-// '📖', '📚', '📘', '📙', '📕'ОТРРИМУЄМО ЕЛЕМЕНТИ'📖', '📚', '📘', '📙', '📕'
+// '📖', '📚', '📘', '📙', '📕'ОТРИМУЄМО ЕЛЕМЕНТИ'📖', '📚', '📘', '📙', '📕'
 
 const contactsModal = document.getElementById('modal');
 const contactsModalBackdrop = document.getElementById('backdrop');
@@ -10,7 +10,7 @@ const contactsForm = document.getElementById('registerForm');
 
 let selectedEventName = '';
 
-// '📖', '📚', '📘', '📙', '📕'ВіДКРИВАННЯ МОДАЛЬНОГО ВІКНА З ПІДТЯГУВАННЯМ НАЗВИ ПОДІЇ '📖', '📚', '📘', '📙', '📕'
+// '📖', '📚', '📘', ФУНКЦІЯ ВіДКРИВАННЯ МОДАЛЬНОГО ВІКНА З ПІДТЯГУВАННЯМ НАЗВИ ПОДІЇ  '📘', '📙', '📕'
 
 export function openContactsModal(eventName) {
   selectedEventName = eventName;
@@ -24,7 +24,8 @@ export function openContactsModal(eventName) {
     { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
   );
 }
-// '📖', '📚', '📘', '📙', '📕'ЗАКРИВАННЯ МОДАЛЬНОГО ВІКНА'📖', '📚', '📘', '📙', '📕'
+
+// '📖', '📚', '📘', '📙', '📕'  ФУНКЦІЯ ЗАКРИВАННЯ МОДАЛЬНОГО ВІКНА'📖', '📚', '📘', '📙', '📕'
 
 function closeContactsModal() {
   gsap.to(contactsModal, {
@@ -37,20 +38,119 @@ function closeContactsModal() {
     onComplete: () => {
       contactsModal.classList.add('contacts-hidden');
       contactsModalBackdrop.classList.add('contacts-hidden');
-      restoreScroll();
+      stopScroll();
       contactsForm.reset();
+      clearErrors();
     },
   });
 }
 
-contactsCloseBtn.addEventListener('click', closeContactsModal);
-contactsModalBackdrop.addEventListener('click', closeContactsModal);
+// '📖', '📚', '📘', '📙', '📕'СКИДАННЯ ПОМИЛОК ПРИ ВВОДІ ТЕКСТУ В ІНПУТ'📖', '📚', '📘', '📙', '📕'
+contactsForm.querySelectorAll('input, textarea').forEach(field => {
+  field.addEventListener('input', () => {
+    // очищуємо помилки для всіх полів
+    clearErrors(); 
+  });
+});
 
+//📖', '📚', '📘', '📙', '📕' ФУНКЦІЯ ОЧИСТКИ ПОМИЛОК В input 📖', '📚', '📘', '📙', '📕'
+
+function clearErrors() {
+  const fields = contactsForm.querySelectorAll('input, textarea');
+  fields.forEach(field => {
+    field.classList.remove('error');
+    const errorMsg = field.parentElement.querySelector('.error-message');
+    if (errorMsg) {
+      errorMsg.textContent = '';
+      errorMsg.style.display = 'none';
+    }
+  });
+}
+
+// '📖', '📚', '📘', '📙', '📕'ФУНКЦІЯ ЗАКРИВАННЯ МОДАЛЬНОГО ВІКНА ПО КНОПЦІ'📖', '📚', '📘', '📙', '📕'
+contactsCloseBtn.addEventListener('click', closeContactsModal);
+
+// '📖', '📚', '📘', '📙', '📕'ФУНКЦІЯ ЗАКРИВАННЯ МОДАЛЬНОГО ВІКНА ПО Backdrop'📖', '📚', '📘', '📙', '📕'
+contactsModalBackdrop.addEventListener('click', e => {
+  if (e.target === contactsModalBackdrop) {
+    closeContactsModal();
+  }
+});
+
+// '📖', '📚', '📘', '📙', '📕'ФУНКЦІЯ ЗАКРИВАННЯ МОДАЛЬНОГО ВІКНА ПО Escape'📖', '📚', '📘', '📙', '📕'
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && !contactsModal.classList.contains('hidden')) {
     closeContactsModal();
   }
 });
+
+//'📖', '📚', '📘', '📙', '📕' ПОДІЯ ФОРМИ'📖', '📚', '📘', '📙', '📕'
+
+contactsForm.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const nameInput = contactsForm.querySelector('input[name="name"]');
+  const emailInput = contactsForm.querySelector('input[name="email"]');
+
+  const nameError = nameInput.parentElement.querySelector('.error-message');
+  const emailError = emailInput.parentElement.querySelector('.error-message');
+
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+
+  clearErrors();
+
+  let hasError = false;
+
+  // Перевірка поля "Name
+  if (!name) {
+    nameInput.classList.add('error');
+    nameError.textContent = 'Please enter your name';
+    nameError.style.display = 'block';
+    hasError = true;
+  }
+  // Перевірка поля "Email"
+  if (!email) {
+    emailInput.classList.add('error');
+    emailError.textContent = 'Please enter your email';
+    emailError.style.display = 'block';
+    hasError = true;
+  }
+
+  // Якщо є помилки — показуємо повідомлення і зупиняємо відправку
+  if (hasError) {
+    Swal.fire({
+      title: 'Oops!',
+      text: 'Please fill in the required fields: Name and Email!',
+      icon: 'warning',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#e15d05',
+    });
+    return;
+  }
+
+  // Якщо все добре — успіх
+  const rect = e.submitter.getBoundingClientRect();
+  const originX = rect.left + rect.width / 2;
+  const originY = rect.top + rect.height / 2;
+
+  Swal.fire({
+    title: 'SUCCESS!',
+    html: `You have registered for: <b>${selectedEventName}</b>`,
+    icon: 'success',
+    confirmButtonText: 'Great!',
+    confirmButtonColor: '#e15d05',
+    didOpen: () => {
+      buttonBookFirework(originX, originY, 11);
+      launchFireworks();
+    },
+  });
+
+  contactsForm.reset();
+  clearErrors();
+  closeContactsModal();
+});
+
 
 //'📖', '📚', '📘', '📙', '📕'ФУНКЦІЯ ФЕЙЕРВЕРКА КОНФЕТТІ'📖', '📚', '📘', '📙', '📕'
 
@@ -106,8 +206,7 @@ function buttonBookFirework(originX, originY, count = 10) {
     const angle = Math.random() * Math.PI * 2;
     const distance = Math.random() * 250 + 100;
 
-    // '📖', '📚', '📘', '📙', '📕'Виліт з кружінням '📖', '📚', '📘', '📙', '📕'
-
+  // Виліт КНИГ з кружінням
     gsap.to(book, {
       x: Math.cos(angle) * distance,
       y: Math.sin(angle) * distance - 150,
@@ -129,7 +228,7 @@ function buttonBookFirework(originX, originY, count = 10) {
           yoyo: true,
           repeat: 1,
           onComplete: () => {
-            // '📖', '📚', '📘', '📙', '📕'Падіння вниз'📖', '📚', '📘', '📙', '📕'
+  // Падіння книг вниз
             gsap.to(book, {
               y: window.innerHeight - originY + 200,
               x: `+=${(Math.random() - 0.5) * 200}`,
@@ -149,98 +248,3 @@ function buttonBookFirework(originX, originY, count = 10) {
   }
 }
 
-//'📖', '📚', '📘', '📙', '📕' ПОДІЯ ФОРМИ'📖', '📚', '📘', '📙', '📕'
-
-contactsForm.addEventListener('submit', e => {
-  e.preventDefault();
-
-  const nameInput = contactsForm.querySelector('input[name="name"]');
-  const emailInput = contactsForm.querySelector('input[name="email"]');
-
-  const nameError = nameInput.parentElement.querySelector('.error-message');
-  const emailError = emailInput.parentElement.querySelector('.error-message');
-
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
-
-  // Скидаємо попередні помилки
-  [nameInput, emailInput].forEach(input => input.classList.remove('error'));
-  [nameError, emailError].forEach(msg => {
-    msg.textContent = '';
-    msg.style.display = 'none';
-  });
-
-  let hasError = false;
-
-  // Перевірка поля "Name
-  if (!name) {
-    nameInput.classList.add('error');
-    nameError.textContent = 'Please enter your name';
-    nameError.style.display = 'block';
-    hasError = true;
-  }
-  // Перевірка поля "Email"
-  if (!email) {
-    emailInput.classList.add('error');
-    emailError.textContent = 'Please enter your email';
-    emailError.style.display = 'block';
-    hasError = true;
-  }
-
-  if (email && !email.includes('@')) {
-    emailInput.classList.add('error');
-    emailError.textContent = 'Email must contain "@"';
-    emailError.style.display = 'block';
-    hasError = true;
-  }
-
-  // Якщо є помилки — показуємо повідомлення і зупиняємо відправку
-  if (hasError) {
-    Swal.fire({
-      title: 'Oops!',
-      text: 'Please fill in the required fields: Name and Email!',
-      icon: 'warning',
-      confirmButtonText: 'OK',
-      confirmButtonColor: '#e15d05',
-    });
-    return;
-  }
-
-  // Якщо все добре — успіх
-  const rect = e.submitter.getBoundingClientRect();
-  const originX = rect.left + rect.width / 2;
-  const originY = rect.top + rect.height / 2;
-
-  Swal.fire({
-    title: 'SUCCESS!',
-    html: `You have registered for: <b>${selectedEventName}</b>`,
-    icon: 'success',
-    confirmButtonText: 'Great!',
-    confirmButtonColor: '#e15d05',
-    didOpen: () => {
-      buttonBookFirework(originX, originY, 11);
-      launchFireworks();
-    },
-  });
-
-  contactsForm.reset();
-
-  // Скидаємо рамку та підказки
-  [nameInput, emailInput].forEach(input => input.classList.remove('error'));
-  [nameError, emailError].forEach(msg => {
-    msg.textContent = '';
-    msg.style.display = 'none';
-  });
-
-  closeContactsModal();
-});
-
-// Видалення error під час введення тексту
-contactsForm.querySelectorAll('input').forEach(input => {
-  const errorMsg = input.parentElement.querySelector('.error-message');
-  input.addEventListener('input', () => {
-    input.classList.remove('error');
-    errorMsg.textContent = '';
-    errorMsg.style.display = 'none';
-  });
-});

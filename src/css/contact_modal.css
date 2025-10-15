@@ -7,34 +7,41 @@
 
 .contacts-modal-backdrop {
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+   background-color: rgb(0 0 0 / 0.25);
   z-index: 10000;
-  width: 100%;
-  height: 100%;
   opacity: 1;
   transition:
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 64px 16px 64px 16px;
+  overflow-y: auto;
 }
 
+ 
 .contacts-modal-window {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: var(--Radius-Large, 16px);
-  background: var(--ColorScheme1-Background, rgba(252, 238, 230, 1));
+  position: relative;
+    margin: 0 auto;
+border-radius: 16px;
+  background-color: #fceee6;
   padding: 64px 16px 64px 16px;
   z-index: 11000;
-  min-height: 794px;
-  width: 343px;
+  max-width: 100%;
+ width: 100%; 
   box-shadow:
     0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 375px) {
+  .contacts-modal-window  {
+    width: 343px;
+  }
 }
 
 .contacts-modal-close-btn {
@@ -54,17 +61,14 @@
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contacts-modal-btn-icon {
-  transition: all 0.3s ease;
-}
 .contacts-modal-close-btn:hover .contacts-modal-btn-icon,
 .contacts-modal-close-btn:focus .contacts-modal-btn-icon,
 .contacts-modal-close-btn:active .contacts-modal-btn-icon {
-  transform: scale(1.2);
+  fill: #707070;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-modal-content {
-  /* width: 311px; */
   display: flex;
   gap: 48px;
   flex-direction: column;
@@ -84,7 +88,6 @@
   font-size: 48px;
   font-weight: 600;
   line-height: 57px;
-  letter-spacing: -1%;
   text-align: center;
 }
 
@@ -106,7 +109,6 @@
 .contacts-form-field-name {
   height: 72px;
   display: flex;
-  display: block;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -114,9 +116,8 @@
 }
 
 .contacts-form-field-input {
-  width: 311px;
+  width:311px;
   outline: none;
-  transition: all 0.3s ease;
   height: 40px;
   display: flex;
   flex-direction: row;
@@ -124,16 +125,16 @@
   align-items: center;
   gap: 8px;
   padding: 8px 12px 8px 12px;
-  border: 1px solid var(--Opacity-NeutralDarkest15, rgba(11, 5, 0, 0.15));
+  border: 1px solid  rgba(11, 5, 0, 0.15);
   border-radius: 4px;
-  background: var(--Opacity-NeutralDarkest5, rgba(11, 5, 0, 0.05));
+  background: rgba(11, 5, 0, 0.05);
   font-size: 16px;
   line-height: 19px;
   text-align: left;
 }
 
 .contacts-form-field-label {
-  width: 311px;
+  width: 311px;;
   height: 24px;
   font-size: 16px;
   line-height: 19px;
@@ -149,19 +150,24 @@
 
 .contacts-form-field-input:hover,
 .contacts-form-textarea-field:hover {
-  border-color: rgb(156, 153, 150);
-  transition: all 0.3s ease;
+  border-color: #707070;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contacts-form-field-input:focus,
+.contacts-form-textarea-field:focus {
+  border: none;
+  outline: none;
 }
 
 input.error {
-  border-color: var(--Color-ErrorRed, rgba(173, 0, 0, 1));
+  border-color: rgba(173, 0, 0, 1);
 }
 
 small.error-message {
-  color: var(--Color-ErrorRed, rgba(173, 0, 0, 1));
+  color:  rgba(173, 0, 0, 1);
   font-size: 12px;
   display: none;
-  margin-top: 2px;
   transition: opacity 0.3s ease;
 }
 
@@ -175,25 +181,27 @@ small.error-message {
 }
 
 .contacts-form-textarea-field {
-  width: 311px;
+  width: 100%;
+  max-width: 311px;
   outline: none;
-  transition: all 0.3s ease;
   height: 180px;
+  resize: none;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 12px;
-  border: 1px solid var(--Opacity-NeutralDarkest15, rgba(11, 5, 0, 0.15));
+  border: 1px solid rgba(11, 5, 0, 0.15);
   border-radius: 4px;
-  background: var(--Opacity-NeutralDarkest5, rgba(11, 5, 0, 0.05));
+  background:  rgba(11, 5, 0, 0.05);
   font-size: 16px;
   line-height: 19px;
   text-align: left;
 }
 
 .contacts-modal-submit-btn {
-  width: 311px;
+  width: 100%;
+  max-width:  311px;
   height: 48px;
   display: flex;
   flex-direction: row;
@@ -201,10 +209,10 @@ small.error-message {
   align-items: center;
   gap: 8px;
   padding: 12px 24px 12px 24px;
-  border: 1px solid var(--Color-Bamboo, rgba(225, 93, 5, 1));
+  border: 1px solid  rgba(225, 93, 5, 1);
   border-radius: 4px;
-  background: var(--Color-Bamboo, rgba(225, 93, 5, 1));
-  color: var(--Color-White, rgba(255, 255, 255, 1));
+  background:  rgba(225, 93, 5, 1);
+  color:  rgba(255, 255, 255, 1);
   font-size: 16px;
   line-height: 19px;
   letter-spacing: 0%;
@@ -215,9 +223,9 @@ small.error-message {
 }
 
 .contacts-modal-submit-btn:hover {
-  border: 1px solid var(--Color-NeutralDarkest, rgba(11, 5, 0, 1));
+  border: 1px solid  rgba(11, 5, 0, 1);
   border-radius: 4px;
-  background: var(--Color-NeutralDarkest, rgba(11, 5, 0, 1));
+  background:  rgba(11, 5, 0, 1);
   transition:
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -230,7 +238,6 @@ small.error-message {
   }
   .contacts-modal-window {
     width: 704px;
-    min-height: 760px;
   }
   .contacts-modal-description {
     height: 108px;
@@ -243,12 +250,14 @@ small.error-message {
   .contacts-form-field-name,
   .contacts-form-field-input,
   .contacts-form-field-wrapper,
-  .contacts-form-field-label,
-  .contacts-form-textarea-field {
+  .contacts-form-field-label {
     width: 640px;
   }
+  .contacts-form-textarea-field {
+    max-width: 640px;
+  }
   .contacts-modal-submit-btn {
-    width: 342px;
+    max-width: 342px;
   }
 }
 
@@ -259,33 +268,28 @@ small.error-message {
   }
   .contacts-modal-window {
     width: 866px;
-    /* max-width: 866px; */
-  }
-  .contacts-modal-description {
-    height: 108px;
-  }
-  .contacts-modal-event-title {
-    height: 34px;
   }
 
   .contacts-modal-content,
   .contacts-form-field-name,
   .contacts-form-field-input,
   .contacts-form-field-wrapper,
-  .contacts-form-field-label,
-  .contacts-form-textarea-field {
+  .contacts-form-field-label {
     width: 738px;
   }
+  .contacts-form-textarea-field {
+    max-width: 738px;
+  }
   .contacts-modal-submit-btn {
-    width: 342px;
+    max-width: 342px;
   }
 }
 
 /*"📖", "📚", "📘", "📙", "📕" стилі для js "📖", "📚", "📘", "📙", "📕" */
 
-body.open-modal {
+/* body.open-modal {
   overflow: hidden;
-}
+} */
 
 .swal-success-text {
   display: flex;
@@ -309,3 +313,6 @@ body.open-modal {
 .swal2-container {
   z-index: 19000;
 }
+
+
+
