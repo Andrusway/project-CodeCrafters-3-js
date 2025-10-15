@@ -1,4 +1,4 @@
-import { stopScroll } from './helpers';
+import { restoreScroll, stopScroll } from './helpers';
 
 // '📖', '📚', '📘', '📙', '📕'ОТРИМУЄМО ЕЛЕМЕНТИ'📖', '📚', '📘', '📙', '📕'
 
@@ -38,7 +38,7 @@ function closeContactsModal() {
     onComplete: () => {
       contactsModal.classList.add('contacts-hidden');
       contactsModalBackdrop.classList.add('contacts-hidden');
-      stopScroll();
+      restoreScroll();
       contactsForm.reset();
       clearErrors();
     },
@@ -49,7 +49,7 @@ function closeContactsModal() {
 contactsForm.querySelectorAll('input, textarea').forEach(field => {
   field.addEventListener('input', () => {
     // очищуємо помилки для всіх полів
-    clearErrors(); 
+    clearErrors();
   });
 });
 
