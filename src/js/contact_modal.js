@@ -11,7 +11,7 @@ const contactsForm = document.getElementById('registerForm');
 
 let selectedEventName = '';
 
-// '📖', '📚', '📘', ФУНКЦІЯ ВіДКРИВАННЯ МОДАЛЬНОГО ВІКНА З ПІДТЯГУВАННЯМ НАЗВИ ПОДІЇ  '📘', '📙', '📕'
+// '📖', '📚', '📘', ФУНКЦІЯ ВіДКРИВАННЯ МОДАЛЬНОГО ВІКНА З ПІДТЯГУВАННЯМ НАЗВИ ПОДІЇ  '📘', '📙', 
 
 export function openContactsModal(eventName) {
   selectedEventName = eventName;
