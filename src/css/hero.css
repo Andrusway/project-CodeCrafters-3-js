@@ -94,11 +94,14 @@
 }
 .hero-swiper-button-disabled {
   background: #e15d05;
-  fill: #0b0500;
   opacity: 0.2;
   cursor: default;
   border: 1px solid rgba(11, 5, 0, 0.15);
   pointer-events: none;
+}
+.hero-swiper-button-disabled .swiper-next-icon,
+.hero-swiper-button-disabled .swiper-prev-icon {
+  fill: #0b0500;
 }
 .swiper-prev-icon,
 .swiper-next-icon {
