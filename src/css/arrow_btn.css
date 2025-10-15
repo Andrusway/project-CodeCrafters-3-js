@@ -21,6 +21,7 @@
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.arrow-btn-nav:hover,
 .arrow-btn-nav:focus {
   background-color: #fceee6;
   fill: #0b0500;
@@ -28,7 +29,7 @@
 
 
 .arrow-btn-nav:active {
-  background-color: #5a2502;
+ background-color: #5a2502;
   fill: #fff;
 }
 
