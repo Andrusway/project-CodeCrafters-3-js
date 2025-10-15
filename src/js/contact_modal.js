@@ -1,4 +1,5 @@
 import { stopScroll } from './helpers';
+import { restoreScroll } from './handlers';
 
 // '📖', '📚', '📘', '📙', '📕'ОТРИМУЄМО ЕЛЕМЕНТИ'📖', '📚', '📘', '📙', '📕'
 
@@ -38,7 +39,8 @@ function closeContactsModal() {
     onComplete: () => {
       contactsModal.classList.add('contacts-hidden');
       contactsModalBackdrop.classList.add('contacts-hidden');
-      stopScroll();
+      // stopScroll();
+      restoreScroll();
       contactsForm.reset();
       clearErrors();
     },
