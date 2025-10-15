@@ -38,7 +38,7 @@
 }
 .footer-item:hover,
 .footer-item:focus {
-  opacity: 0.2;
+  color: #fceee6;
 }
 .footer-form {
   display: flex;
