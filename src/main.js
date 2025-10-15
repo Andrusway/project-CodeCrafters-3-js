@@ -1,10 +1,14 @@
-
 import './js/events';
 import { initHeroSwiper } from './js/hero.js';
 import { initFeedbacksSwiper } from './js/feedbacks.js';
-import { openNavbar, closeNavbar } from './js/handlers';
+import {
+  openNavbar,
+  closeNavbar,
+  madeVisibleArrowBtn,
+  scrollUp,
+} from './js/handlers';
 import { handleScreenChange } from './js/helpers';
-import { navbarBtn, navbarCloseBtn, mediaQuery } from './js/refs';
+import { navbarBtn, navbarCloseBtn, mediaQuery, arrowNavBtn } from './js/refs';
 import './js/books';
 
 import './js/modal.js';
@@ -34,6 +38,7 @@ function initAfterLoad() {
   }
 }
 
+window.addEventListener('scroll', madeVisibleArrowBtn);
 document.addEventListener('DOMContentLoaded', initAfterLoad);
 
 handleScreenChange(mediaQuery);
@@ -41,6 +46,7 @@ mediaQuery.addEventListener('change', handleScreenChange);
 
 navbarBtn.addEventListener('click', openNavbar);
 navbarCloseBtn.addEventListener('click', closeNavbar);
+arrowNavBtn.addEventListener('click', scrollUp);
 // navbarList.addEventListener("click", handleNavigation);
 
 refs.booksList.addEventListener('click', onBookClick);

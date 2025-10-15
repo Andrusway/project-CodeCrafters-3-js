@@ -5,7 +5,13 @@ import {
   showSuccessToast,
   restoreScroll,
 } from './helpers';
-import { navbarBtn, navbarCloseBtn, navbarList, refs } from './refs';
+import {
+  navbarBtn,
+  navbarCloseBtn,
+  navbarList,
+  refs,
+  arrowNavBtn,
+} from './refs';
 import { closeModal, openModal } from './modal.js';
 import { renderBookModal } from './render-function.js';
 import { getBook } from './products-api.js';
@@ -109,4 +115,21 @@ export function onBookCountInput(event) {
   let value = Number(event.target.value);
   if (value < 1) event.target.value = 1;
   if (value > 99) event.target.value = 99;
+}
+
+// поява стрілки Scroll up
+export function madeVisibleArrowBtn() {
+  if (window.scrollY > 600) {
+    arrowNavBtn.classList.add('is-visible-arrow-btn');
+  } else {
+    arrowNavBtn.classList.remove('is-visible-arrow-btn');
+  }
+}
+
+// підняття вгору при натисканні Scroll up
+export function scrollUp() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
