@@ -61,6 +61,7 @@
   justify-content: center;
   flex-direction: column;
   padding: 12px;
+  outline: none;
   border: 1px solid rgba(11, 5, 0, 0.15);
   border-radius: 4px;
   background: rgba(11, 5, 0, 0.05);
@@ -103,6 +104,7 @@
   font-size: 16px;
   line-height: 1.5;
   background-color: #e07b4f;
+  color: #0b0500;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
   overflow: visible;
