@@ -1,5 +1,6 @@
-import { stopScroll } from './helpers';
-import { restoreScroll } from './helpers';
+
+import { stopScroll, restoreScroll } from './helpers';
+
 
 //  '📚', '📘', '📙', '📕'ОТРИМУЄМО ЕЛЕМЕНТИ'📖', '📚', '📘', '📙', 
 

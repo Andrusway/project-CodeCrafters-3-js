@@ -99,6 +99,10 @@
   border: 1px solid rgba(11, 5, 0, 0.15);
   pointer-events: none;
 }
+.hero-swiper-button-disabled .swiper-next-icon,
+.hero-swiper-button-disabled .swiper-prev-icon {
+  fill: #0b0500;
+}
 .swiper-prev-icon,
 .swiper-next-icon {
   fill: #fff;
