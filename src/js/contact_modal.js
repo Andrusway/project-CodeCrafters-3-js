@@ -2,7 +2,7 @@
 import { stopScroll, restoreScroll } from './helpers';
 
 
-//  '📚', '📘', '📙', '📕'ОТРИМУЄМО ЕЛЕМЕНТИ'📖', '📚', '📘', '📙', 
+//  '📚', '📘', '📙', '📕'ОТРИМУЄМО ЕЛЕМЕНТИ'📖', '📚', '📘', '📙',
 
 const contactsModal = document.getElementById('modal');
 const contactsModalBackdrop = document.getElementById('backdrop');
@@ -12,7 +12,7 @@ const contactsForm = document.getElementById('registerForm');
 
 let selectedEventName = '';
 
-//  '📚', '📘', ФУНКЦІЯ ВіДКРИВАННЯ МОДАЛЬНОГО ВІКНА З ПІДТЯГУВАННЯМ НАЗВИ ПОДІЇ  '📘', '📙', 
+//  '📚', '📘', ФУНКЦІЯ ВіДКРИВАННЯ МОДАЛЬНОГО ВІКНА З ПІДТЯГУВАННЯМ НАЗВИ ПОДІЇ  '📘', '📙',
 
 export function openContactsModal(eventName) {
   selectedEventName = eventName;
@@ -20,7 +20,7 @@ export function openContactsModal(eventName) {
   contactsModal.classList.remove('contacts-hidden');
   contactsModalBackdrop.classList.remove('contacts-hidden');
   stopScroll();
-  
+
   gsap.fromTo(
     contactsModal,
     { y: -window.innerHeight, opacity: 0, scale: 1 },
@@ -44,7 +44,7 @@ function closeContactsModal() {
       restoreScroll();
       contactsForm.reset();
       clearErrors();
-    
+
     },
   });
 }
@@ -53,7 +53,7 @@ function closeContactsModal() {
 contactsForm.querySelectorAll('input, textarea').forEach(field => {
   field.addEventListener('input', () => {
     // очищуємо помилки для всіх полів
-    clearErrors(); 
+    clearErrors();
   });
 });
 
@@ -171,7 +171,7 @@ function launchFireworks() {
 
   function frame() {
     if (!isFireworksRunning) return;
-    
+
     confetti({
       particleCount: 8,
       angle: 60,
@@ -267,7 +267,7 @@ function buttonBookFirework(originX, originY, count = 2) {
 
 function removeBook(book) {
   gsap.killTweensOf(book);
-  if (book.parentNode) 
+  if (book.parentNode)
     book.parentNode.removeChild(book);
     activeBooks = activeBooks.filter(b => b!== book)
 }

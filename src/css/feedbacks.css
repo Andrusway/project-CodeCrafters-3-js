@@ -54,7 +54,7 @@
 }
 
 .feedbacks-item:hover {
-  box-shadow: 0 12px 24px rgba(11, 5, 0, 0.2);
+  box-shadow: 0 6px 3px -3px rgba(0, 0, 0, 0.25);
 }
 
 .feedbacks-text {
@@ -115,7 +115,6 @@
 .feedbacks-bullet-active {
   background: #0b0500;
   opacity: 1;
-  transform: scale(1.3);
 }
 
 .feedbacks-btn {
@@ -142,7 +141,6 @@
 .feedbacks-btn:hover,
 .feedbacks-btn:focus-visible {
   background: #fceee6;
-  transform: scale(1.05);
 }
 
 .feedbacks-btn:hover svg,
@@ -152,7 +150,6 @@
 
 .feedbacks-btn:active {
   background: #5a2502;
-  transform: scale(0.97);
 }
 
 .feedbacks-btn:active svg {

@@ -17,7 +17,7 @@ export function renderBookModal(book) {
 
       <div class="book-modal-product-info">
         <header>
-          <h2 class="book-modal-title">${bookTitle}</h2>
+          <h2 class="book-modal-title" id="book-modal-title">${bookTitle}</h2>
           <p class="book-modal-author">${book.author}</p>
           <p class="book-modal-price">$${book.price}</p>
         </header>
