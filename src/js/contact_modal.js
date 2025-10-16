@@ -1,6 +1,8 @@
-import { restoreScroll, stopScroll } from './helpers';
 
-// '📖', '📚', '📘', '📙', '📕'ОТРИМУЄМО ЕЛЕМЕНТИ'📖', '📚', '📘', '📙', '📕'
+import { stopScroll, restoreScroll } from './helpers';
+
+
+//  '📚', '📘', '📙', '📕'ОТРИМУЄМО ЕЛЕМЕНТИ'📖', '📚', '📘', '📙',
 
 const contactsModal = document.getElementById('modal');
 const contactsModalBackdrop = document.getElementById('backdrop');
@@ -10,7 +12,7 @@ const contactsForm = document.getElementById('registerForm');
 
 let selectedEventName = '';
 
-// '📖', '📚', '📘', ФУНКЦІЯ ВіДКРИВАННЯ МОДАЛЬНОГО ВІКНА З ПІДТЯГУВАННЯМ НАЗВИ ПОДІЇ  '📘', '📙', '📕'
+//  '📚', '📘', ФУНКЦІЯ ВіДКРИВАННЯ МОДАЛЬНОГО ВІКНА З ПІДТЯГУВАННЯМ НАЗВИ ПОДІЇ  '📘', '📙',
 
 export function openContactsModal(eventName) {
   selectedEventName = eventName;
@@ -18,22 +20,23 @@ export function openContactsModal(eventName) {
   contactsModal.classList.remove('contacts-hidden');
   contactsModalBackdrop.classList.remove('contacts-hidden');
   stopScroll();
+
   gsap.fromTo(
     contactsModal,
-    { scale: 0.4, opacity: 0, y: -20 },
-    { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
-  );
+    { y: -window.innerHeight, opacity: 0, scale: 1 },
+    { y: 0, opacity: 1, duration: 0.3, ease: "linear" }
+  )
 }
 
 // '📖', '📚', '📘', '📙', '📕'  ФУНКЦІЯ ЗАКРИВАННЯ МОДАЛЬНОГО ВІКНА'📖', '📚', '📘', '📙', '📕'
 
 function closeContactsModal() {
+  stopAllFireworks();
   gsap.to(contactsModal, {
-    scale: 0.4,
+   y: -window.innerHeight,
     opacity: 0,
-    y: -20,
-    duration: 0.4,
-    ease: 'power2.in',
+    duration: 0.3,
+    ease: 'linear',
 
     onComplete: () => {
       contactsModal.classList.add('contacts-hidden');
@@ -41,6 +44,7 @@ function closeContactsModal() {
       restoreScroll();
       contactsForm.reset();
       clearErrors();
+
     },
   });
 }
@@ -79,7 +83,7 @@ contactsModalBackdrop.addEventListener('click', e => {
 
 // '📖', '📚', '📘', '📙', '📕'ФУНКЦІЯ ЗАКРИВАННЯ МОДАЛЬНОГО ВІКНА ПО Escape'📖', '📚', '📘', '📙', '📕'
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && !contactsModal.classList.contains('hidden')) {
+  if (e.key === 'Escape' && !contactsModal.classList.contains('contacts-hidden')) {
     closeContactsModal();
   }
 });
@@ -154,11 +158,20 @@ contactsForm.addEventListener('submit', e => {
 
 //'📖', '📚', '📘', '📙', '📕'ФУНКЦІЯ ФЕЙЕРВЕРКА КОНФЕТТІ'📖', '📚', '📘', '📙', '📕'
 
+// котроль для зупинки
+let fireworksFrameId = null;
+let activeBooks = [];
+let isFireworksRunning = false;
+
 function launchFireworks() {
   const duration = 2500;
   const end = Date.now() + duration;
 
-  (function frame() {
+  isFireworksRunning = true;
+
+  function frame() {
+    if (!isFireworksRunning) return;
+
     confetti({
       particleCount: 8,
       angle: 60,
@@ -175,15 +188,18 @@ function launchFireworks() {
       zIndex: 19000,
       colors: ['#E15D05', '#FFD700', '#FF9F1C', '#B000FF', '#00C4B3'],
     });
-    if (Date.now() < end) requestAnimationFrame(frame);
-  })();
+    if (Date.now() < end && isFireworksRunning) {
+      fireworksFrameId = requestAnimationFrame(frame);
+    }
+  }
+ frame();
 }
 
 // '📖', '📚', '📘', '📙', '📕'ФУНКЦІЯ ФЕЙЕРВЕРКА КНИГ '📖', '📚', '📘', '📙', '📕'
 
 // Функція фейерверка з кнопки
-function buttonBookFirework(originX, originY, count = 10) {
-  const bookEmojis = ['📖', '📚', '📘', '📙', '📕'];
+function buttonBookFirework(originX, originY, count = 2) {
+  const bookEmojis = [  '📘', '📙', '📕'];
   const colors = ['#E15D05', '#FFD700', '#FF9F1C', '#B000FF', '#00C4B3'];
 
   for (let i = 0; i < count; i++) {
@@ -202,7 +218,7 @@ function buttonBookFirework(originX, originY, count = 10) {
     book.style.transformOrigin = 'center';
 
     document.body.appendChild(book);
-
+    activeBooks.push(book);
     const angle = Math.random() * Math.PI * 2;
     const distance = Math.random() * 250 + 100;
 
@@ -248,3 +264,29 @@ function buttonBookFirework(originX, originY, count = 10) {
   }
 }
 
+
+function removeBook(book) {
+  gsap.killTweensOf(book);
+  if (book.parentNode)
+    book.parentNode.removeChild(book);
+    activeBooks = activeBooks.filter(b => b!== book)
+}
+
+function stopAllFireworks() {
+  isFireworksRunning = false;
+
+  if (fireworksFrameId) {
+    cancelAnimationFrame(fireworksFrameId);
+    fireworksFrameId = null;
+  }
+
+  if (confetti && typeof confetti.reset === 'function') {
+    confetti.reset();
+  }
+
+  activeBooks.forEach(book => {
+    gsap.killTweensOf(book);
+    if (book.parentNode) book.parentNode.removeChild(book)
+  });
+  activeBooks = [];
+}
