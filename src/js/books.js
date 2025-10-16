@@ -1,3 +1,6 @@
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://books-backend.p.goit.global/books/';
@@ -65,6 +68,18 @@ function displayShowMoreButton() {
 
 function hideShowMoreButton() {
   showMoreButton.classList.remove('books-show-more-button-display');
+}
+
+// ****************************************** loader **************************************************************//
+
+const loader = document.querySelector('.loader');
+
+function showLoader() {
+  loader.classList.add('loader-show');
+}
+
+function hideLoader() {
+  loader.classList.remove('loader-show');
 }
 
 // ************************************************** TopBooks / Books by Category ************************************************
@@ -146,7 +161,11 @@ showBooks('All categories');
 // при кліку на категорію - запит getBooksByCategory
 
 async function showBooks(category) {
+  booksList.innerHTML = '';
   hideShowMoreButton();
+
+  showLoader();
+
   try {
     if (category === 'All categories') {
       const allBooks = await getTopBooks();
@@ -177,6 +196,14 @@ async function showBooks(category) {
     }
   } catch (error) {
     console.log(error);
+    iziToast.show({
+      color: 'red',
+      message: `❌ Sorry, an error occurred.`,
+      position: 'topRight',
+      maxWidth: '450px',
+    });
+  } finally {
+    hideLoader();
   }
 }
 

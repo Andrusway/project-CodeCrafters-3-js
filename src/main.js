@@ -63,3 +63,5 @@ refs.backdrop.addEventListener('click', e => {
 refs.backdrop.addEventListener('input', e => {
   e.target.closest('.book-count') && onBookCountInput(e);
 });
+
+import './js/footer.js';
