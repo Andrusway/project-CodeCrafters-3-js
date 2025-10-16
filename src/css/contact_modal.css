@@ -61,6 +61,7 @@
 .contacts-modal-close-btn:focus .contacts-modal-btn-icon,
 .contacts-modal-close-btn:active .contacts-modal-btn-icon {
   transform: scale(1.2);
+  fill: #707070;
 }
 
 .contacts-modal-content {
