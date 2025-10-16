@@ -65,6 +65,7 @@ border-radius: 16px;
 .contacts-modal-close-btn:focus .contacts-modal-btn-icon,
 .contacts-modal-close-btn:active .contacts-modal-btn-icon {
   fill: #707070;
+  transform: scale(1.2);
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
