@@ -9,7 +9,7 @@ import{S as T,N,P as K,K as X,i as C,A as re,a as h}from"./assets/vendor-D66hK4h
 
       <div class="book-modal-product-info">
         <header>
-          <h2 class="book-modal-title">${t}</h2>
+          <h2 class="book-modal-title" id="book-modal-title">${t}</h2>
           <p class="book-modal-author">${e.author}</p>
           <p class="book-modal-price">$${e.price}</p>
         </header>
